@@ -39,28 +39,28 @@ public function id()
 public function title()
 {
 
-    return $this->_lastName;
+    return $this->_title;
 
 }
 
 public function article()
 {
 
-    return $this->_firstName;
+    return $this->_article;
 
 }
 
 public function articleDate()
 {
 
-    return $this->_middleName;
+    return $this->_articleDate;
 
 }
 
-public function images()
+public function image()
 {
 
-    return $this->_images;
+    return $this->_image;
 
 }
    
