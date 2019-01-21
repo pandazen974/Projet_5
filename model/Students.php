@@ -10,12 +10,12 @@ class Students{
     private $password;
     private $registrationNumber;
     private $promotion;
-       
+      
 public function __construct(array $donnees)
   {
     $this->hydrate($donnees);
   }
-    
+  
 public function hydrate(array $donnees)
 {
   foreach ($donnees as $key => $value)
