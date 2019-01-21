@@ -5,6 +5,7 @@ class Admin{
     private $lastName;
     private $firstName;
     private $middleName;
+    private $address;
     private $email;
     private $password;
        
@@ -57,6 +58,13 @@ public function middleName()
     return $this->_middleName;
 
 }
+
+public function address()
+{
+
+    return $this->_address;
+
+}
   
 public function email()
 {
@@ -100,6 +108,13 @@ public function setMiddleName($middleName)
 {
       
     $this->_middleName=$middleName;
+      
+}
+
+public function setAddress($address)
+{
+      
+    $this->_address=$address;
       
 }
 
