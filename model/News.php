@@ -5,7 +5,7 @@ class News{
     private $title;
     private $article;
     private $articleDate;
-    private $images;
+    private $image;
         
 public function __construct(array $donnees)
   {
@@ -57,41 +57,13 @@ public function articleDate()
 
 }
 
-public function address()
+public function images()
 {
 
-    return $this->_address;
+    return $this->_images;
 
 }
-  
-public function email()
-{
-
-    return $this->_email;
-
-}
-  
-public function password()
-{
-
-    return $this->_password;
-
-}
-
-public function registrationNumber()
-{
-
-    return $this->_registrationNumber;
-
-}
-
-public function promotion()
-{
-
-    return $this->_promotion;
-
-}
-  
+   
   //SETTERS
 public function setId($id)
 {
@@ -100,63 +72,33 @@ public function setId($id)
 
 }
 
-public function setLastName($lastName)
+public function setTitle($title)
 {
 
-    $this->_lastName = $lastName;
+    $this->_title = $title;
 
 }
 
-  
-
-public function setFirstName($firstName)
+public function setArticle($article)
 {
 
-    $this->_firstName = $firstName;
+    $this->_article = $article;
         
 }
   
-public function setMiddleName($middleName)
+public function setArticleDate($articleDate)
 {
       
-    $this->_middleName=$middleName;
+    $this->_articleDate=$articleDate;
       
 }
 
-public function setAddress($address)
+public function setImage($image)
 {
       
-    $this->_address=$address;
+    $this->_image=$image;
       
 }
 
-public function setEmail($email)
-{
-      
-    $this->_email=$email;
-      
-}
-
-public function setPassword($password)
-{
-      
-    $this->_password=$password;
-      
-}
-
-public function setRegistrationNumber($registrationNumber)
-{
-      
-    $this->_registrationNumber=$registrationNumber;
-      
-}
-
-public function setPromotion($promotion)
-{
-      
-    $this->_promotion=$promotion;
-      
-}
-   
 }
 
