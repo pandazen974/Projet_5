@@ -1,6 +1,6 @@
 <?php
 
-class News{
+class Stages{
     private $id;
     private $title;
     private $details;
