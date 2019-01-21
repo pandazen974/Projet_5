@@ -10,6 +10,7 @@ class Students{
     private $password;
     private $registrationNumber;
     private $promotion;
+    private $registrationDate;
       
 public function __construct(array $donnees)
   {
@@ -95,6 +96,13 @@ public function promotion()
     return $this->_promotion;
 
 }
+
+public function registrationDate()
+{
+
+    return $this->_registrationDate;
+
+}
   
   //SETTERS
 public function setId($id)
@@ -159,6 +167,13 @@ public function setPromotion($promotion)
 {
       
     $this->_promotion=$promotion;
+      
+}
+
+public function setRegistrationDate($registrationDate)
+{
+      
+    $this->_registrationDate=$registrationDate;
       
 }
    
