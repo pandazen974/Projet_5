@@ -8,6 +8,7 @@ class Teachers{
     private $address;
     private $email;
     private $password;
+    private $classId;
        
 public function __construct(array $donnees)
   {
@@ -79,6 +80,13 @@ public function password()
     return $this->_password;
 
 }
+
+public function classId()
+{
+
+    return $this->_classId;
+
+}
   
   //SETTERS
 public function setId($id)
@@ -129,6 +137,13 @@ public function setPassword($password)
 {
       
     $this->_password=$password;
+      
+}
+
+public function setClassId($classId)
+{
+      
+    $this->_classId=$classId;
       
 }
    
