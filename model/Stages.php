@@ -2,10 +2,9 @@
 
 class Stages{
     private $id;
-    private $title;
-    private $details;
     private $room;
-    private $studentsId;
+    private $address;
+    private $telNumber;
         
 public function __construct(array $donnees)
   {
@@ -36,20 +35,6 @@ public function id()
       
 }
   
-public function title()
-{
-
-    return $this->_title;
-
-}
-
-public function details()
-{
-
-    return $this->_details;
-
-}
-
 public function room()
 {
 
@@ -57,14 +42,21 @@ public function room()
 
 }
 
-public function studentId()
+public function address()
 {
 
-    return $this->_studentId;
+    return $this->_address;
 
 }
-   
-  //SETTERS
+
+public function telNumber()
+{
+
+    return $this->_telNumber;
+
+}
+
+//SETTERS
 public function setId($id)
 {
 
@@ -72,32 +64,25 @@ public function setId($id)
 
 }
 
-public function setTitle($title)
-{
-
-    $this->_title = $title;
-
-}
-
-public function setDetails($details)
-{
-
-    $this->_details = $details;
-        
-}
-  
 public function setRoom($room)
 {
-      
-    $this->_room=$room;
-      
+
+    $this->_room = $room;
+
 }
 
-public function setStudentsId($studentsId)
+public function setAddress($address)
 {
-      
-    $this->_studentsId=$studentsId;
-      
+
+    $this->_address = $address;
+        
+}
+
+public function setTelNumber($telNumber)
+{
+
+    $this->_telNumber = $telNumber;
+        
 }
 
 }

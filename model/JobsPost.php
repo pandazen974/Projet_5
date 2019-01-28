@@ -1,8 +1,8 @@
 <?php
 
-class News{
-    private $id;
-    private $image;
+class StagesPost{
+    private $postId;
+    private $jobId;
         
 public function __construct(array $donnees)
   {
@@ -26,34 +26,35 @@ public function hydrate(array $donnees)
 }
 
 //GETTERS
-public function id()
+public function postId()
 {
       
-    return $this->_id;
+    return $this->_postId;
       
 }
   
-public function image()
+public function jobId()
 {
 
-    return $this->_image;
+    return $this->_jobId;
 
 }
-   
+
   //SETTERS
-public function setId($id)
+public function setPostId($postId)
 {
 
-    $this->_id = $id;
+    $this->_postId = $postId;
 
 }
 
-public function setImage($image)
+public function setJobId($jobId)
 {
-      
-    $this->_image=$image;
-      
+
+    $this->_jobId = $jobId;
+
 }
 
 }
+
 

@@ -1,14 +1,16 @@
 <?php
 
-class News{
+class Planning{
     private $id;
-    private $image;
+    private $start;
+    private $end;
+    private $userId;
         
 public function __construct(array $donnees)
   {
     $this->hydrate($donnees);
   }
-  
+    
 public function hydrate(array $donnees)
 {
   foreach ($donnees as $key => $value)
@@ -33,13 +35,27 @@ public function id()
       
 }
   
-public function image()
+public function start()
 {
 
-    return $this->_image;
+    return $this->_groupName;
 
 }
-   
+
+public function end()
+{
+    
+    return $this->_promotion;
+    
+}
+
+public function userId()
+{
+    
+    return $this->_userId;
+    
+}
+  
   //SETTERS
 public function setId($id)
 {
@@ -48,12 +64,27 @@ public function setId($id)
 
 }
 
-public function setImage($image)
+public function setStart($start)
 {
-      
-    $this->_image=$image;
-      
-}
+
+    $this->_start = $start;
 
 }
+
+public function setEnd($end)
+{
+    
+    $this->_end=$end;
+    
+}
+
+public function setUserId($userId)
+{
+    
+    $this->_userId=$userId;
+    
+}
+  
+}
+
 

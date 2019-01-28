@@ -2,12 +2,9 @@
 
 class Jobs{
     private $id;
-    private $title;
-    private $content;
-    private $address;
     private $telNumber;
-    private $postDate;
-        
+    private $address;
+      
 public function __construct(array $donnees)
   {
     $this->hydrate($donnees);
@@ -37,17 +34,10 @@ public function id()
       
 }
   
-public function title()
+public function telNumber()
 {
 
-    return $this->_title;
-
-}
-
-public function content()
-{
-
-    return $this->_content;
+    return $this->_telNumber;
 
 }
 
@@ -58,21 +48,7 @@ public function address()
 
 }
 
-public function telNumber()
-{
-
-    return $this->_image;
-
-}
-
-public function postDate()
-{
-
-    return $this->_postDate;
-
-}
-   
-  //SETTERS
+//SETTERS
 public function setId($id)
 {
 
@@ -80,35 +56,19 @@ public function setId($id)
 
 }
 
-public function setTitle($title)
-{
-
-    $this->_title = $title;
-
-}
-
-public function setContent($content)
-{
-
-    $this->_content = $content;
-        
-}
-
 public function setTelNumber($telNumber)
 {
-      
-    $this->_telNumber=$telNumber;
-      
+
+    $this->_telNumber = $telNumber;
+
 }
-  
-public function setPostDate($postDate)
+
+public function setAddress($address)
 {
-      
-    $this->_postDate=$postDate;
-      
+
+    $this->_address = $address;
+        
 }
-
-
 
 }
 

@@ -1,14 +1,15 @@
 <?php
 
-class News{
+class Group{
     private $id;
-    private $image;
+    private $groupName;
+    private $promotion;
         
 public function __construct(array $donnees)
   {
     $this->hydrate($donnees);
   }
-  
+    
 public function hydrate(array $donnees)
 {
   foreach ($donnees as $key => $value)
@@ -33,13 +34,20 @@ public function id()
       
 }
   
-public function image()
+public function groupName()
 {
 
-    return $this->_image;
+    return $this->_groupName;
 
 }
-   
+
+public function promotion()
+{
+    
+    return $this->_promotion;
+    
+}
+  
   //SETTERS
 public function setId($id)
 {
@@ -48,12 +56,20 @@ public function setId($id)
 
 }
 
-public function setImage($image)
+public function setGroupName($groupName)
 {
-      
-    $this->_image=$image;
-      
-}
+
+    $this->_groupName = $groupName;
 
 }
+
+public function setPromotion($promotion)
+{
+    
+    $this->_promotion=$promotion;
+    
+}
+  
+}
+
 

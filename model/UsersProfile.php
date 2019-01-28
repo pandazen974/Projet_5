@@ -1,14 +1,14 @@
 <?php
 
-class News{
-    private $id;
-    private $image;
+class UsersProfile{
+    private $userId;
+    private $profileId;
         
 public function __construct(array $donnees)
   {
     $this->hydrate($donnees);
   }
-  
+    
 public function hydrate(array $donnees)
 {
   foreach ($donnees as $key => $value)
@@ -25,35 +25,35 @@ public function hydrate(array $donnees)
   }
 }
 
-//GETTERS
-public function id()
+//GETTERS 
+public function userId()
 {
-      
-    return $this->_id;
-      
+
+    return $this->_userId;
+
+}
+
+public function profileId()
+{
+    
+    return $this->_profileId;
+    
 }
   
-public function image()
-{
-
-    return $this->_image;
-
-}
-   
   //SETTERS
-public function setId($id)
+public function setUserId($userId)
 {
 
-    $this->_id = $id;
+    $this->_userId = $userId;
 
 }
 
-public function setImage($image)
+public function setProfileId($profileId)
 {
-      
-    $this->_image=$image;
-      
+    
+    $this->_profileId=$profileId;
+    
 }
-
+  
 }
 

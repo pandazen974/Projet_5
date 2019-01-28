@@ -1,13 +1,18 @@
 <?php
 
-class Admin{
+class User{
     private $id;
     private $lastName;
     private $firstName;
     private $middleName;
     private $address;
+    private $telNumber;
+    private $birth;
     private $email;
     private $password;
+    private $registrationDate;
+    private $groupId;
+    private $planningId;
        
 public function __construct(array $donnees)
   {
@@ -65,6 +70,20 @@ public function address()
     return $this->_address;
 
 }
+
+public function telNumber()
+{
+    
+    return $this->_telNumber;
+    
+}
+
+public function birth() 
+{
+    
+    return $this->_birth;
+    
+}
   
 public function email()
 {
@@ -78,6 +97,27 @@ public function password()
 
     return $this->_password;
 
+}
+
+public function registrationDate()
+{
+    
+    return $this->_registrationDate;
+    
+}
+
+public function groupId()
+{
+    
+    return $this->_groupId;
+    
+}
+
+public function planningId()
+{
+   
+    return $this->_planningId;
+    
 }
   
   //SETTERS
@@ -118,6 +158,20 @@ public function setAddress($address)
       
 }
 
+public function setTelNumber($telNumber)
+{
+    
+    $this->_telNumber=$telNumber;
+    
+}
+
+public function setBirth($birth)
+{
+    
+    $this->_birth=$birth;
+    
+}
+
 public function setEmail($email)
 {
       
@@ -130,6 +184,27 @@ public function setPassword($password)
       
     $this->_password=$password;
       
+}
+
+public function setRegistrationDate($registrationDate)
+{
+    
+    $this->_registrationDate=$registrationDate;
+    
+}
+
+public function setGroupId($groupId)
+{
+    
+    $this->_groupId=$groupId;
+    
+}
+
+public function setPlanningId($planningId)
+{
+    
+    $this->_planningId=$planningId;
+    
 }
    
 }

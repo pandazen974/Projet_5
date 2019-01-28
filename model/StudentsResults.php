@@ -1,8 +1,8 @@
 <?php
 
-class News{
-    private $id;
-    private $image;
+class StudentsResults{
+    private $studentId;
+    private $resultId;
         
 public function __construct(array $donnees)
   {
@@ -33,13 +33,14 @@ public function id()
       
 }
   
-public function image()
+public function resultId()
 {
 
-    return $this->_image;
+    return $this->_resultId;
 
 }
-   
+
+
   //SETTERS
 public function setId($id)
 {
@@ -48,12 +49,11 @@ public function setId($id)
 
 }
 
-public function setImage($image)
+public function setResultId($resultsId)
 {
       
-    $this->_image=$image;
+    $this->_resultId=$resultsId;
       
 }
 
 }
-

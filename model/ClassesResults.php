@@ -1,8 +1,9 @@
 <?php
 
-class News{
-    private $id;
-    private $image;
+class ClassesResults{
+    private $resultId;
+    private $classId;
+    private $planningId;
         
 public function __construct(array $donnees)
   {
@@ -26,32 +27,46 @@ public function hydrate(array $donnees)
 }
 
 //GETTERS
-public function id()
+public function resultId()
 {
       
-    return $this->_id;
+    return $this->_resultId;
       
 }
   
-public function image()
+public function classId()
 {
 
-    return $this->_image;
+    return $this->_classId;
 
 }
-   
+
+public function planningId()
+{
+
+    return $this->_planningId;
+
+}
+
   //SETTERS
-public function setId($id)
+public function setResultId($resultId)
 {
 
-    $this->_id = $id;
+    $this->_resultId = $resultId;
 
 }
 
-public function setImage($image)
+public function setClassId($classId)
+{
+
+    $this->_classd = $classId;
+
+}
+
+public function setPlanningId($planningId)
 {
       
-    $this->_image=$image;
+    $this->_planningId=$planningId;
       
 }
 

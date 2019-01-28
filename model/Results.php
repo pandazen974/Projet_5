@@ -2,9 +2,6 @@
 
 class Results{
     private $id;
-    private $classId;
-    private $teacherId;
-    private $studentId;
     private $result;
         
 public function __construct(array $donnees)
@@ -36,27 +33,6 @@ public function id()
       
 }
   
-public function classId()
-{
-
-    return $this->_classId;
-
-}
-
-public function teacherId()
-{
-
-    return $this->_teacherId;
-
-}
-
-public function studentId()
-{
-
-    return $this->_studentId;
-
-}
-
 public function result()
 {
 
@@ -73,34 +49,11 @@ public function setId($id)
 
 }
 
-public function setClassId($classId)
-{
-
-    $this->_classId = $classId;
-
-}
-
-public function setTeacherId($teacherId)
-{
-
-    $this->_teacherId = $teacherId;
-        
-}
-
-public function setStudentId($studentId)
+public function setResult($result)
 {
       
-    $this->_studentId=$studentId;
+    $this->_result=$result;
       
 }
-  
-public function setResults($results)
-{
-      
-    $this->_results=$results;
-      
-}
-
-
 
 }

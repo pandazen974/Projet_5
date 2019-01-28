@@ -1,9 +1,10 @@
 <?php
 
-class News{
+class Rights{
     private $id;
-    private $image;
-        
+    private $rightName;
+  
+      
 public function __construct(array $donnees)
   {
     $this->hydrate($donnees);
@@ -33,13 +34,13 @@ public function id()
       
 }
   
-public function image()
+public function rightName()
 {
 
-    return $this->_image;
+    return $this->_rightName;
 
 }
-   
+
   //SETTERS
 public function setId($id)
 {
@@ -48,12 +49,13 @@ public function setId($id)
 
 }
 
-public function setImage($image)
+public function setRightName($rightName)
 {
-      
-    $this->_image=$image;
-      
+
+    $this->_rightName = $rightName;
+
 }
 
 }
+
 
