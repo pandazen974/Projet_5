@@ -15,12 +15,14 @@ Class UserManager extends Database{
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                    lastName=:lastName, firstName=:firstName, middleName=:middleName, address=:address, telNumber=:telNumber, birth=:birth, email=:email, registrationDate=NOW()";
+                 lastName=:lastName, firstName=:firstName, middleName=:middleName, address=:address, city=:city, postalCode=:postalCode, telNumber=:telNumber, birth=:birth, email=:email, registrationDate=NOW()";
         $stmt = $this->conn->prepare($query);
         $lastName= htmlspecialchars($user->lastName());
         $firstName= htmlspecialchars($user->firstName());
         $middleName= htmlspecialchars($user->middleName());
         $address= htmlspecialchars($user->address());
+        $city= htmlspecialchars($user->city());
+        $postalCode= htmlspecialchars($user->postalCode());
         $telNumber=htmlspecialchars($user->telNumber());
         $birth=htmlspecialchars($user->birth());
         $email= htmlspecialchars($user->email());
@@ -28,11 +30,15 @@ Class UserManager extends Database{
         $stmt->bindParam(':firstName',$firstName);
         $stmt->bindParam(':middleName',$middleName);
         $stmt->bindParam(':address',$address);
+        $stmt->bindParam(':city',$city);
+        $stmt->bindParam(':postalCode',$postalCode);
         $stmt->bindParam(':telNumber',$telNumber);
         $stmt->bindParam(':birth',$birth);
         $stmt->bindParam(':email',$email);
         $stmt->execute();
+        $user->setId($this->conn->lastInsertId());
         return $user;
+        
         }
         
         catch (Exception $e){
