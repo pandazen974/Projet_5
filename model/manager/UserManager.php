@@ -26,15 +26,15 @@ Class UserManager extends Database{
         $telNumber=htmlspecialchars($user->telNumber());
         $birth=htmlspecialchars($user->birth());
         $email= htmlspecialchars($user->email());
-        $stmt->bindParam(':lastName',$lastName);
-        $stmt->bindParam(':firstName',$firstName);
-        $stmt->bindParam(':middleName',$middleName);
-        $stmt->bindParam(':address',$address);
-        $stmt->bindParam(':city',$city);
-        $stmt->bindParam(':postalCode',$postalCode);
+        $stmt->bindParam(':lastName',$lastName,PDO::PARAM_STR);
+        $stmt->bindParam(':firstName',$firstName,PDO::PARAM_STR);
+        $stmt->bindParam(':middleName',$middleName,PDO::PARAM_STR);
+        $stmt->bindParam(':address',$address,PDO::PARAM_STR);
+        $stmt->bindParam(':city',$city,PDO::PARAM_STR);
+        $stmt->bindParam(':postalCode',$postalCode,PDO::PARAM_INT);
         $stmt->bindParam(':telNumber',$telNumber);
-        $stmt->bindParam(':birth',$birth);
-        $stmt->bindParam(':email',$email);
+        $stmt->bindParam(':birth',$birth,PDO::PARAM_STR);
+        $stmt->bindParam(':email',$email,PDO::PARAM_STR);
         $stmt->execute();
         $user->setId($this->conn->lastInsertId());
         return $user;
@@ -48,7 +48,7 @@ Class UserManager extends Database{
     
     public function readAllUsers(){
     try{
-        $query = "SELECT *,DATE_FORMAT(registrationDate, 'publié le %d/%m/%Y à %H:%i:%s') as registrationDate
+        $query = "SELECT *,DATE_FORMAT(registrationDate, '%d/%m/%Y') as registrationDate,DATE_FORMAT(birth, '%d/%m/%Y') as birth
 
             FROM
                 " . $this->table_name . "
@@ -77,24 +77,31 @@ Class UserManager extends Database{
        public function updateUser(User $user){
         try{
     $query = "UPDATE user
-                    SET lastName=:lastName, firstName=:firstName, middleName=:middleName, address=:address, telNumber=:telNumber, birth=:birth, email=:email , registrationDate=NOW(), groupId=:groupId, planningId=:planningId
+             SET
+                    lastName=:lastName, firstName=:firstName, middleName=:middleName, address=:address, city=:city, postalCode=:postalCode, telNumber=:telNumber, birth=:birth, email=:email, registrationDate=NOW()
                     WHERE id = :id";
         $stmt = $this->conn->prepare($query);
         $lastName= htmlspecialchars($user->lastName());
         $firstName= htmlspecialchars($user->firstName());
         $middleName= htmlspecialchars($user->middleName());
         $address= htmlspecialchars($user->address());
+        $city= htmlspecialchars($user->city());
+        $postalCode= htmlspecialchars($user->postalCode());
         $telNumber=htmlspecialchars($user->telNumber());
         $birth=htmlspecialchars($user->birth());
         $email= htmlspecialchars($user->email());
-        $stmt->bindParam(':lastName',$lastName);
-        $stmt->bindParam(':firstName',$firstName);
-        $stmt->bindParam(':middleName',$middleName);
-        $stmt->bindParam(':address',$address);
+        $stmt->bindParam(':lastName',$lastName,PDO::PARAM_STR);
+        $stmt->bindParam(':firstName',$firstName,PDO::PARAM_STR);
+        $stmt->bindParam(':middleName',$middleName,PDO::PARAM_STR);
+        $stmt->bindParam(':address',$address,PDO::PARAM_STR);
+        $stmt->bindParam(':city',$city,PDO::PARAM_STR);
+        $stmt->bindParam(':postalCode',$postalCode,PDO::PARAM_INT);
         $stmt->bindParam(':telNumber',$telNumber);
-        $stmt->bindParam(':birth',$birth);
-        $stmt->bindParam(':email',$email);
-        $stmt->execute();  
+        $stmt->bindParam(':birth',$birth,PDO::PARAM_STR);
+        $stmt->bindParam(':email',$email,PDO::PARAM_STR);
+        $stmt->execute();
+        return $user;
+        
         }
         catch (Exception $e){
             exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
@@ -106,7 +113,7 @@ Class UserManager extends Database{
     $query = "DELETE FROM user WHERE id = :id";
     $stmt = $this->conn->prepare($query);
     $id=$user->id();
-    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':id', $id,PDO::PARAM_INT);
     $stmt->execute();
     }
         catch (Exception $e){
