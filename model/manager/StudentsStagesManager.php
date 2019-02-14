@@ -1,9 +1,9 @@
 <?php
 
-Class ClassesPlanningManager{
+Class StudentsStagesManager{
     
     private $conn;
-    private $table_name = "profileRights";
+    private $table_name = "studentsStagesManager";
  
     public function __construct($db){
         $this->conn = $db;

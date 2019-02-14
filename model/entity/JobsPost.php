@@ -1,6 +1,6 @@
 <?php
 
-class StagesPost{
+class JobsPost{
     private $postId;
     private $jobId;
         

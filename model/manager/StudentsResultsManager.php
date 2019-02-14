@@ -1,6 +1,6 @@
 <?php
 
-Class StudendtsResultsManager{
+Class StudentsResultsManager{
     
     private $conn;
     private $table_name = "studentsResults";

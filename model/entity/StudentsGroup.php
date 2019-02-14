@@ -1,8 +1,10 @@
 <?php
 
 class StudentsGroup{
-    private $groupId;
+     
     private $userId;
+    private $groupId;
+   
         
 public function __construct(array $donnees)
   {
@@ -26,6 +28,13 @@ public function hydrate(array $donnees)
 }
 
 //GETTERS 
+public function userId()
+{
+    
+    return $this->_userId;
+    
+}
+
 public function groupId()
 {
 
@@ -33,26 +42,23 @@ public function groupId()
 
 }
 
-public function userId()
-{
-    
-    return $this->_userId;
-    
-}
+
   
   //SETTERS
-public function setGroupId($groupId)
-{
 
-    $this->_groupId = $groupId;
-
-}
 
 public function setUserId($userId)
 {
     
     $this->_userId=$userId;
     
+}
+
+public function setGroupId($groupId)
+{
+
+    $this->_groupId = $groupId;
+
 }
   
 }
