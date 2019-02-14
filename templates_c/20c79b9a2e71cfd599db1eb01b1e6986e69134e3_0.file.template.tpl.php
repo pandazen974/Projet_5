@@ -1,0 +1,134 @@
+<?php
+/* Smarty version 3.1.33, created on 2019-02-12 14:59:16
+  from 'C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\view\template.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c62df443c0533_77645137',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '20c79b9a2e71cfd599db1eb01b1e6986e69134e3' => 
+    array (
+      0 => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5\\view\\template.tpl',
+      1 => 1549983495,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5c62df443c0533_77645137 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, false);
+?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title><?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17032026145c62df443b12d9_77865355', 'titre');
+?>
+</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/Projet_5/public/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    </head>
+ 
+<body>
+<header>
+
+<div id="entete">
+    <a href="http://www.lyc-honore-d-estienne-d-orves.ac-nice.fr/"><img src="public/images/logo.png" alt="Logo lycée Honoré Estienne d'Orves"></a>
+	<div id="separation">
+			<img src="public/images/dts.png" alt="Logo dts">
+	</div>
+</div>
+		<div id="menu">
+                    <ul>
+                        <li><a href="view/home.tpl">Accueil</a></li>
+                        <li><a href="">A propos du DTS</a>
+                                <ul class="liste" >
+                                <li><a href="index.php?action=userForm">Organigramme</a></li>
+                                <li><a href="index.php?UserForm.php">Historique</a></li>
+                                <li><a href="index.php?UserForm.php">Débouchés</a></li>
+                                <li><a href="index.php?UserForm.php">Modalités d'inscription</a></li>
+                      
+                            </ul>
+                        </li>
+                        <li><a href="">A propos du métier</a>
+                            <ul class="liste" >
+                                <li><a href="index.php?action=userForm">Législation</a></li>
+                                <li><a href="index.php?UserForm.php">Modalités</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Liens utiles</a>
+                            <ul class="liste" >
+                                <li><a href="index.php?action=userForm">Jobs</a></li>
+                                <li><a href="index.php?UserForm.php">Nous contacter</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">Administration</a>
+                            <ul class="liste" >
+                                <li><a href="index.php?action=userForm">Enregistrement</a></li>
+                                <li><a href="index.php?action=listAllUsers">Lister personnes</a></li>
+                                <li><a href="index.php?action=userUpdateForm">Mise à jour</a></li>
+                                <li><a href="index.php?UserForm.php">Suppression</a></li>
+                      
+                            </ul>
+                        </li>
+                        <li><a href="">Gestion EDT</a>
+                            <ul class="liste">
+                                <li><a href="index.php?action=classForm">Plannifier un cours</a></li>
+                                <li><a href="index.php?UserForm.php">Lister cours</a></li>
+                                <li><a href="index.php?UserForm.php">Modifier un cours</a></li>
+                                
+                            </ul>
+                        </li>
+                    </ul>
+		</div>
+
+</header>
+    
+    <div><?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20566573815c62df443bcd13_21033826', 'contenu');
+?>
+</div>
+    </body>
+</html><?php }
+/* {block 'titre'} */
+class Block_17032026145c62df443b12d9_77865355 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'titre' => 
+  array (
+    0 => 'Block_17032026145c62df443b12d9_77865355',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block 'titre'} */
+/* {block 'contenu'} */
+class Block_20566573815c62df443bcd13_21033826 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'contenu' => 
+  array (
+    0 => 'Block_20566573815c62df443bcd13_21033826',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+?>
+Cette page ne contient rien<?php
+}
+}
+/* {/block 'contenu'} */
+}
