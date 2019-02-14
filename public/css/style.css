@@ -1,0 +1,207 @@
+body{
+	
+	font-family: 'Merriweather Sans', sans-serif;
+	margin:0;
+	
+}
+
+/*Accueil*/
+
+header{
+	display:flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+hr{
+	width:80%;
+	height:2px;
+	margin-bottom: 20px;
+	background-color: rgba(29,105,139,0.9);
+}
+
+#entete
+{
+	display:flex;
+	flex-wrap:wrap;
+	align-items: center;
+	justify-content: center;
+}
+
+#entete h1{
+	background-color: rgba(29,105,139,0.3);
+	border-radius: 2px rgba(29,105,139,0.9) solid;
+	padding:10px;
+}
+
+#menu{
+display:flex;
+background-color:rgba(29,105,139,0.9);
+align-items: center;
+justify-content: center;
+
+}
+#menu ul{
+    display:flex;
+    flex-direction:row;
+    list-style:none;
+}
+
+#menu .liste {
+    display:flex;
+   flex-direction:column;
+}
+
+#menu a{
+	text-decoration:none;
+	color:rgba(255,255,255,0.7);
+	font-weight: bold;
+	
+}
+
+#menu a:hover{
+	color:rgba(29,105,139,0.9);
+	background-color:rgba(255,255,255,0.7);
+}
+
+#banniere{
+
+	background-image: url(../images/medical.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	height:450px;
+	margin-top:5px;
+	margin-bottom:5px;
+
+}
+
+#entete img{
+	float:left;
+}
+
+
+#drop_menu
+{
+	display:none;
+}
+
+/*Texte*/
+
+
+#texte
+{
+	display:flex;
+
+
+}
+
+#texte span
+{
+	font-weight: bold;
+}
+
+
+
+#texte p
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
+	margin-top:30px;
+}
+
+
+
+#centre
+{
+  width:80%;
+  text-align: justify;
+
+}
+
+#slider h2{
+	text-align: center;
+	color:rgba(29,105,139,0.9);
+	font-weight: 24px;
+}
+
+#right,#left
+{
+	width:10%;
+	background-color:rgba(29,105,139,0.9);
+	border-top:2px solid rgba(29,51,64,1);
+	border-bottom:2px solid rgba(29,51,64,1);
+
+}
+
+/*Formulaire*/
+
+form{
+	width:300px;
+	text-align: center;
+	display:flex;
+	flex-direction: column;
+	margin:auto;
+	margin-top:60px;
+	
+	
+	
+}
+
+
+
+#partie_deux{
+		
+		display:flex;
+		flex-direction: column;
+		border-top:3px solid black;	
+
+}
+
+
+#entete_formulaire{
+
+			background-color: rgba(62, 63, 63, 1);
+			border-top-left-radius: 10px;
+			border-top-right-radius: 10px;
+			color:rgba(255,255,255,0.9);
+}
+
+#corps_formulaire{
+
+	width:250px;
+	padding:20px;
+	padding-top:35px;
+	color:black;
+	margin:auto;
+	
+}
+
+
+
+#bouton_formulaire img{
+	width:100px;
+	border-radius:10px;
+}
+
+
+input{
+
+	padding:10px;
+	margin:5px;
+}
+
+button{
+	display:flex;
+	margin:auto;
+position:relative;
+margin-bottom: 20px;
+color:rgba(255,255,255,0.9);
+background-color: rgba(62, 63, 63, 1);
+font-weight: bold;
+border:3px solid black;
+border-radius:10px;
+padding:5px;
+}
+
