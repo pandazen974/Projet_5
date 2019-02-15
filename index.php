@@ -44,13 +44,13 @@ try { // Cherche la page
         }
         
         if ($_GET['action'] == 'registerUsersProfile') {
-            $userController=new UserController();
-            $userController->registerUsersProfile();
+            $usersProfileController=new UsersProfileController();
+            $usersProfileController->registerUsersProfile();
         }
         
-        if ($_GET['action'] == 'registerUsersGroup') {
-            $userController=new UserController();
-            $userController->registerUsersGroup();
+        if ($_GET['action'] == 'registerStudentsGroup') {
+            $studentsGroupController=new StudentsGroupController();
+            $studentsGroupController->registerStudentsGroup();
         }
         
         if ($_GET['action'] == 'classForm') {
