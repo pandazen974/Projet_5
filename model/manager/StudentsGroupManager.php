@@ -1,25 +1,35 @@
 <?php
 
-Class StudentsGroupManager{
+Class StudentsGroupManager extends Database{
     
-    private $conn;
+    protected $conn;
     private $table_name = "studentsGroup";
  
-    public function __construct($db){
-        $this->conn = $db;
+    public function __construct(){
+        $this->conn=parent::getConnection();
+       
     }
     
-public function setUsersGroup(StudentsGroup $studentsGroup){
+public function setStudentsGroup(StudentsGroup $studentsGroup){
+    try{
         $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
                     userId=:userId, groupId=:groupId";
  
         $stmt = $this->conn->prepare($query);
-        $userId= htmlspecialchars($userId->lastName());
-        $groupId= htmlspecialchars($groupId->firstName());
+        $userId= htmlspecialchars($studentsGroup->userId());
+        $groupId= htmlspecialchars($studentsGroup->groupId());
         $stmt->bindValue(':userId',$userId);
         $stmt->bindValue(':groupId',$groupId);
-        $stmt->execute(); 
+        $stmt->execute();
+        return $studentsGroup;
     }
+    catch (Exception $e){
+        exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+    }
+
+    
+    }
+
 }
