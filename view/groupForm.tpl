@@ -2,7 +2,7 @@
 
 {block name=titre}Promotion{/block}
 
-{block name=contenu}<form action="index.php?action=registerUsersProfile" method="post">
+{block name=contenu}<form action="index.php?action=registerStudentsGroup&amp;id={$newUserProfile->userId()}" method="post">
 <label for="promotion">Veuillez renseigner l'année d'inscription de l'étudiant:</label><br/>
 <select name="promotion">
     <option value="1">1ère année</option>
