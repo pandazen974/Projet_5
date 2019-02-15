@@ -12,22 +12,23 @@ Class UsersProfileManager extends Database{
     
     public function setUsersProfile(UsersProfile $usersProfile){
         try{
-        $query = "INSERT INTO
+            $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
                     userId=:userId, profileId=:profileId";
  
-        $stmt = $this->conn->prepare($query);
-        $userId= htmlspecialchars($userId->lastName());
-        $profileId= htmlspecialchars($profileId->firstName());
-        $stmt->bindValue(':userId',$userId);
-        $stmt->bindValue(':profileId',$profileId);
-        $stmt->execute(); 
+            $stmt = $this->conn->prepare($query);
+            $userId= htmlspecialchars($usersProfile->userId());
+            $profileId= htmlspecialchars($usersProfile->profileId());
+            $stmt->bindParam(':userId',$userId,PDO::PARAM_INT);
+            $stmt->bindParam(':profileId',$profileId,PDO::PARAM_INT);
+            $stmt->execute(); 
+            return $usersProfile;
     }
     
-    catch (Exception $e){
-        exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
-    }
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
     }
     
 }
