@@ -27,6 +27,7 @@ class UserController extends Controller{
         $users=$userManager->readAllUsers();
         $this->smarty->assign('users', $users);
         $this->smarty->display('view/usersList.tpl');
+        
    
     }
     
@@ -52,6 +53,12 @@ class UserController extends Controller{
     }
     
     public function eraseUser(){
+        $usersProfileManager=new UsersProfileManager();
+        $userProfile=$usersProfileManager->readSelectedUserProfile($_GET['id']);
+        $usersProfileManager->deleteUserProfile($userProfile);
+        $studentsGroupManager=new StudentsGroupManager();
+        $studentGroup=$studentsGroupManager->readSelectedStudentGroup($_GET['id']);
+        $studentsGroupManager->deleteStudentGroup($studentGroup);
         $userManager=new UserManager();
         $selectedUser=$userManager->readSelectedUser($_GET['id']);
         $userManager->deleteUser($selectedUser);
