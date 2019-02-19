@@ -1,6 +1,7 @@
 <?php
 
 class UsersProfile{
+    private $id;
     private $userId;
     private $profileId;
         
@@ -26,6 +27,13 @@ public function hydrate(array $donnees)
 }
 
 //GETTERS 
+public function id()
+{
+
+    return $this->_id;
+
+}
+
 public function userId()
 {
 
@@ -41,6 +49,13 @@ public function profileId()
 }
   
   //SETTERS
+public function setId($id)
+{
+
+    $this->_id = $id;
+
+}
+
 public function setUserId($userId)
 {
 
