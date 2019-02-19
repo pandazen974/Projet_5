@@ -31,5 +31,39 @@ Class UsersProfileManager extends Database{
         }
     }
     
+         public function readSelectedUserProfile($userId){
+            $query = "SELECT *
+            FROM
+                " . $this->table_name . "
+            WHERE
+                userId = :userId
+            LIMIT
+                0,1";
+   
+            $stmt = $this->conn->prepare( $query );
+            $stmt->bindParam(':userId', $userId,PDO::PARAM_INT);
+            $stmt->execute();
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if($row===false){
+            $selectedUserProfile=null;
+            }else{
+            $selectedUserProfile=new UsersProfile($row);
+            }
+            return $selectedUserProfile;
+            }
+    
+        public function deleteUserProfile(UsersProfile $usersProfile){
+        try{
+            $query = "DELETE FROM usersProfile WHERE userId = :userId";
+            $stmt = $this->conn->prepare($query);
+            $userId=$usersProfile->userId();
+            $stmt->bindParam(':userId', $userId,PDO::PARAM_INT);
+            $stmt->execute();
+        }
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }
+    
 }
 
