@@ -1,6 +1,7 @@
 <?php
 
 class ClassesPlanning{
+    private $id;
     private $planningId;
     private $classesId;
         
@@ -26,6 +27,13 @@ public function hydrate(array $donnees)
 }
 
 //GETTERS
+public function id()
+{
+    
+    return $this->_id;
+    
+}
+
 public function planningId()
 {
 
@@ -41,6 +49,13 @@ public function classesId()
 }
   
   //SETTERS
+public function setId()
+{
+    
+    return $this->_id;
+    
+}
+
 public function setPlanningId($planningId)
 {
 
