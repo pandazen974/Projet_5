@@ -2,6 +2,7 @@
 
 class StudentsGroup{
      
+    private $id;
     private $userId;
     private $groupId;
    
@@ -28,6 +29,13 @@ public function hydrate(array $donnees)
 }
 
 //GETTERS 
+public function id()
+{
+    
+    return $this->_id;
+    
+}
+
 public function userId()
 {
     
@@ -45,7 +53,12 @@ public function groupId()
 
   
   //SETTERS
+public function setId($id)
+{
 
+    $this->_id = $id;
+
+}
 
 public function setUserId($userId)
 {
@@ -60,6 +73,8 @@ public function setGroupId($groupId)
     $this->_groupId = $groupId;
 
 }
+
+
   
 }
 
