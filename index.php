@@ -20,12 +20,31 @@ try { // Cherche la page
         
         if ($_GET['action'] == 'openUserUpdateForm') {
           $userController=new UserController();
-            $userController->openUserUpdateForm();
+          $userController->openUserUpdateForm();
         }
         
-         if ($_GET['action'] == 'listAllUsers') {
+        if ($_GET['action'] == 'openPlanningForm') {
+          $smarty->display('view/planningForm.tpl');
+        }
+        
+        if ($_GET['action'] == 'readEvents') {
+          $planningController=new PlanningController();
+          $planningController->readEvents();
+        }
+        
+        if ($_GET['action'] == 'feedEvents') {
+          $planningController=new PlanningController();
+          $planningController->feedEvents();
+        }
+        
+        if ($_GET['action'] == 'addEvent') {
+          $planningController=new PlanningController();
+          $planningController->addEvent();
+        }
+
+        if ($_GET['action'] == 'listAllUsers') {
           $userController=new UserController();
-            $userController->listAllUsers();
+          $userController->listAllUsers();
         } 
 //      
         if ($_GET['action'] == 'registerUser') {
@@ -52,16 +71,7 @@ try { // Cherche la page
             $studentsGroupController=new StudentsGroupController();
             $studentsGroupController->registerStudentsGroup();
         }
-        
-        if ($_GET['action'] == 'classForm') {
-          require_once('view/classesFormView.php');
-        } 
-        
-        if ($_GET['action'] == 'setClass') {
-          $classesController=new ClassesController();
-            $classesController->setClass();
-        }
-        
+           
     }
     
     else {
