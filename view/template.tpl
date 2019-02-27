@@ -11,6 +11,8 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/Projet_5/public/css/style.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="/Projet_5/public/css/jquery.datetimepicker.css"/>
+        <link rel='stylesheet' href='/Projet_5/public/css/fullcalendar.css' />
     </head>
  
 <body>
@@ -48,17 +50,12 @@ and open the template in the editor.
                         </li>
                         <li><a href="">Administration</a>
                             <ul class="liste" >
-                                <li><a href="index.php?action=userForm">Enregistrement</a></li>
-                                <li><a href="index.php?action=listAllUsers">Lister personnes</a></li>
-                                <li><a href="index.php?action=userUpdateForm">Mise à jour</a></li>
-                                <li><a href="index.php?UserForm.php">Suppression</a></li>
-                      
+                                <li><a href="index.php?action=listAllUsers">Gestion des utilisateurs</a></li>
                             </ul>
                         </li>
-                        <li><a href="">Gestion EDT</a>
+                        <li><a href="index.php?action=readEvents">Gestion EDT</a>
                             <ul class="liste">
-                                <li><a href="index.php?action=classForm">Plannifier un cours</a></li>
-                                <li><a href="index.php?UserForm.php">Lister cours</a></li>
+                                <li><a href="index.php?action=openPlanningForm">Plannifier un cours</a></li>
                                 <li><a href="index.php?UserForm.php">Modifier un cours</a></li>
                                 
                             </ul>
