@@ -13,6 +13,7 @@ public function registerUsersProfile(){
                 $usersProfile=new UsersProfile(['userId'=>$_GET['id'],'profileId'=>$_POST['profile']]);
                 if(($_POST['profile']==="1") OR ($_POST['profile']==="2")){
                     $userManager=new UserManager();
+                    $newUserProfile=$usersProfileManager->setUsersProfile($usersProfile);
                     $users=$userManager->readAllUsers();
                     $this->smarty->assign('users', $users);
                     $this->smarty->display('view/usersList.tpl'); 
