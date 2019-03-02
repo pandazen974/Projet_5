@@ -76,10 +76,10 @@ Class UserManager extends Database{
     
     public function readTeachersOnly(){
         try{
-            $query = "SELECT * FROM user AS u
+            $query = "SELECT u.id, u.lastName, u.firstName FROM user AS u
                 INNER JOIN usersprofile AS up ON u.id = up.userId 
-                INNER JOIN profile AS p ON p.id  = up.profileId 
-                WHERE p.profileName = 'enseignant'
+                INNER JOIN profile as p ON up.profileId=p.id
+                WHERE profileName = 'Enseignant'
                 ORDER BY lastName
            ";
 
