@@ -27,9 +27,15 @@ class UserController extends Controller{
         $users=$userManager->readAllUsers();
         $this->smarty->assign('users', $users);
         $this->smarty->display('view/usersList.tpl');
-        
-   
     }
+    
+    public function listAllTeachers(){
+        $userManager=new UserManager();
+        $users=$userManager->readTeachersOnly();
+        $this->smarty->assign('users', $users);
+        $this->smarty->display('view/usersList.tpl');
+    }
+    
     
     public function openUserUpdateForm(){
         $userManager=new UserManager();
