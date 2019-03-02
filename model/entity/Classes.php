@@ -2,7 +2,9 @@
 
 class Classes{
     private $id;
-    private $className;
+    private $teachingUnit;
+    private $title;
+    
          
 public function __construct(array $donnees)
   {
@@ -32,11 +34,19 @@ public function id()
     return $this->_id;
       
 }
-  
-public function className()
+
+public function teachingUnit()
 {
 
-    return $this->_className;
+    return $this->_teachingUnit;
+
+}
+
+  
+public function title()
+{
+
+    return $this->_title;
 
 }
 
@@ -48,10 +58,17 @@ public function setId($id)
 
 }
 
-public function setClassName($className)
+public function setTeachingUnit($teachingUnit)
 {
 
-    $this->_className = $className;
+    $this->_teachingUnit = $teachingUnit;
+
+}
+
+public function setTitle($title)
+{
+
+    $this->_title = $title;
 
 }
 
