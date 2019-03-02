@@ -7,11 +7,12 @@ and open the template in the editor.
 <html>
     <head>
         <title>{block name=titre}{/block}</title>
-        <meta charset="UTF-8">
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/Projet_5/public/css/style.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
         <link rel="stylesheet" type="text/css" href="/Projet_5/public/css/jquery.datetimepicker.css"/>
+        <link rel='stylesheet' href='/Projet_5/public/css/jquery-ui.css' />
         <link rel='stylesheet' href='/Projet_5/public/css/fullcalendar.css' />
     </head>
  
@@ -19,9 +20,9 @@ and open the template in the editor.
 <header>
 
 <div id="entete">
-    <a href="http://www.lyc-honore-d-estienne-d-orves.ac-nice.fr/"><img src="public/images/logo.png" alt="Logo lycée Honoré Estienne d'Orves"></a>
+    <a href="http://www.lyc-honore-d-estienne-d-orves.ac-nice.fr/"><img src="public/css/images/logo.png" alt="Logo lycée Honoré Estienne d'Orves"></a>
 	<div id="separation">
-			<img src="public/images/dts.png" alt="Logo dts">
+			<img src="public/css/images/dts.png" alt="Logo dts">
 	</div>
 </div>
 		<div id="menu">
