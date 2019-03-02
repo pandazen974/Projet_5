@@ -24,7 +24,8 @@ try { // Cherche la page
         }
         
         if ($_GET['action'] == 'openPlanningForm') {
-          $smarty->display('view/planningForm.tpl');
+          $classesController=new ClassesController();
+          $classesController->listAllclasses();
         }
         
         if ($_GET['action'] == 'readEvents') {
