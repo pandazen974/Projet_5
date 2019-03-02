@@ -7,22 +7,24 @@
 
 <form action="index.php?action=addEvent" method="post">
 
- <label for="title">Sélectionner un cours:</label><br/>
-     <select id="title" name="title">
+<label for="title">Sélectionner un cours:</label><br/>
+    <select id="title" name="title">
         {foreach $classes as $class}<option value="{$class->title()}">{$class->teachingUnit()}:{$class->title()}</option>{/foreach}
     </select><br/>
     
-<label for="userId">Enseignant:</label><br/>
-    <select id="teacher" name="userId">
-        {foreach $teachers as $teacher}<option value="{$teacher->id()}">{$teacher->lastName()} {$teacher->firstName()}</option>{/foreach}
+<label for="teacher">Enseignant:</label><br/>
+    <select id="teacher" name="teacher">
+        {foreach $teachers as $teacher}<option value=" {$teacher->lastName()} {$teacher->firstName()}">{$teacher->lastName()} {$teacher->firstName()}</option>{/foreach}
     </select>
     
-    <label for="start">Début:</label><br/>
-     <input class="datetimepicker" type="text" name="start" >     
+<label for="start">Début:</label><br/>
+    <input class="datetimepicker" type="text" name="start" >     
     
-    <label for="end">Fin:</label><br/>
-        <input class="datetimepicker" type="text" name="end" >
-
+<label for="end">Fin:</label><br/>
+    <input class="datetimepicker" type="text" name="end" >
+    
+    <input  type="hidden" name="userId" value="{$teacher->id()}" >
+        
     <input type="submit" value="Valider" />
 
 </form>
