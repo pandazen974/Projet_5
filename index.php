@@ -72,6 +72,11 @@ try { // Cherche la page
             $studentsGroupController=new StudentsGroupController();
             $studentsGroupController->registerStudentsGroup();
         }
+        
+        if ($_GET['action'] == 'registerGroupPlanning') {
+            $groupPlanningController=new GroupPlanningController();
+            $groupPlanningController->registerGroupPlanning();
+        }
            
     }
     
