@@ -59,7 +59,7 @@ public function end()
 
 public function userId()
 {
-    return $this->_userId();
+    return $this->_userId;
 }
 
   //SETTERS
