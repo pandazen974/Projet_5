@@ -10,5 +10,6 @@
 <script src='/Projet_5/public/lib/jquery.min.js'></script>
 <script src='/Projet_5/public/lib/moment.min.js'></script>
 <script src='/Projet_5/public/lib/fullcalendar.js'></script>
+<script src='/Projet_5/public/lib/locale/fr.js'></script>
 <script src='/Projet_5/public/js/calendar.js'></script>
 {/block}
