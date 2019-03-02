@@ -2,6 +2,7 @@
 
 class Planning{
     private $id;
+    private $title;
     private $start;
     private $end;
     private $userId;
@@ -34,33 +35,45 @@ public function id()
     return $this->_id;
       
 }
+
+public function title()
+{
+      
+    return $this->_title;
+      
+}
   
 public function start()
 {
 
-    return $this->_groupName;
+    return $this->_start;
 
 }
 
 public function end()
 {
     
-    return $this->_promotion;
+    return $this->_end;
     
 }
 
 public function userId()
 {
-    
-    return $this->_userId;
-    
+    return $this->_userId();
 }
-  
+
   //SETTERS
 public function setId($id)
 {
 
     $this->_id = $id;
+
+}
+
+public function setTitle($title)
+{
+
+    $this->_title = $title;
 
 }
 
@@ -84,6 +97,7 @@ public function setUserId($userId)
     $this->_userId=$userId;
     
 }
+
   
 }
 
