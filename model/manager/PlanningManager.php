@@ -38,15 +38,19 @@ Class PlanningManager extends Database{
             $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                 title=:title,start=:start, end=:end";
+                 title=:title,start=:start, end=:end, userId=:userId";
             $stmt = $this->conn->prepare($query);
             $title=htmlspecialchars($planning->title());
             $start= htmlspecialchars($planning->start());
             $end= htmlspecialchars($planning->end());
+            $userId= htmlspecialchars($planning->userId());
             $stmt->bindParam(':title',$title,PDO::PARAM_STR);
             $stmt->bindParam(':start',$start,PDO::PARAM_STR);
             $stmt->bindParam(':end',$end,PDO::PARAM_STR);
+            $stmt->bindParam(':userId',$userId,PDO::PARAM_INT);
             $stmt->execute();
+            $planning->setId($this->conn->lastInsertId());
+            var_dump($planning);
             return $planning;
         }
             
