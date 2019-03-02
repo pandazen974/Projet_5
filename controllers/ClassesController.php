@@ -15,6 +15,9 @@ class ClassesController extends Controller{
         $userManager=new UserManager();
         $teachers=$userManager->readTeachersOnly();
         $this->smarty->assign('teachers', $teachers);
+        $groupManager=new GroupManager();
+        $groups=$groupManager->readAllGroups();
+        $this->smarty->assign('groups', $groups);
         $this->smarty->display('view/planningForm.tpl');
     }
     
