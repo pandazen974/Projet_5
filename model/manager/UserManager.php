@@ -74,6 +74,34 @@ Class UserManager extends Database{
     
     }
     
+    public function readTeachersOnly(){
+        try{
+            $query = "SELECT * FROM user AS u
+                INNER JOIN usersprofile AS up ON u.id = up.userId 
+                INNER JOIN profile AS p ON p.id  = up.profileId 
+                WHERE p.profileName = 'enseignant'
+                ORDER BY lastName
+           ";
+
+            $stmt = $this->conn->prepare( $query );
+            $stmt->execute();
+
+            while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
+                {
+                    $user[]=new User($donnees);
+                }
+            return $user;
+
+            }
+    
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    
+    }
+    
+    
+    
     public function updateUser(User $user){
         try{
             $query = "UPDATE user
