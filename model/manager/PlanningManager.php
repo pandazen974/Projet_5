@@ -97,7 +97,7 @@ Class PlanningManager extends Database{
             }else{
             $selectedPlanning=new Planning($row);
             }
-            return $selectedPLanning;
+            return $selectedPlanning;
             }
         
     public function deletePlanning(Planning $planning){
