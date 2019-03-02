@@ -7,9 +7,16 @@
 
 <form action="index.php?action=addEvent" method="post">
 
-    <input type="hidden" name="id" value=""/><br/>
-     <label for="title">Nom du Cours:</label><br/>
-     <input type="text" name ="title" />
+ <label for="title">Sélectionner un cours:</label><br/>
+     <select id="title" name="title">
+        {foreach $classes as $class}<option value="{$class->title()}">{$class->teachingUnit()}:{$class->title()}</option>{/foreach}
+    </select><br/>
+    
+<label for="userId">Enseignant:</label><br/>
+    <select id="teacher" name="userId">
+        {foreach $teachers as $teacher}<option value="{$teacher->id()}">{$teacher->lastName()} {$teacher->firstName()}</option>{/foreach}
+    </select>
+    
     <label for="start">Début:</label><br/>
      <input class="datetimepicker" type="text" name="start" >     
     
