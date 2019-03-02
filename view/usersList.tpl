@@ -2,7 +2,7 @@
 
 {block name=titre}Liste Utilisateurs{/block}
 {block name=contenu}<h3>Lister utilisateurs</h3>
-    <a href="index.php?action=openUserForm"><button>Créer</button></a>
+    <a href="index.php?action=openUserForm"><button><span class="ui-icon ui-icon-plus"></span>Ajouter</button></a>
 <table id="table_id" class="display cell-border order-column stripe">
     <thead>
         <tr>
