@@ -97,8 +97,7 @@ public function setUserId($userId)
     $this->_userId=$userId;
     
 }
-
-  
+ 
 }
 
 
