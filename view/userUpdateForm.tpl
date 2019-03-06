@@ -9,34 +9,34 @@
 
 
     <label for="lastName">Nom:</label><br/>
-    <input type="text" name="lastName" value="{$user->lastName()}" />
+    <input type="text" name="lastName" placeholder="{$user->lastName()}" />
     
     <label for="firstName">Prénom:</label><br/>
-    <input type="text" name="firstName" value="{$user->firstName()}" />
+    <input type="text" name="firstName" placeholder="{$user->firstName()}" />
     
     <label for="middleName">Autres prénoms:</label><br/>
-    <input type="text" name="middleName" value="{$user->middleName()}" />
+    <input type="text" name="middleName" placeholder="{$user->middleName()}" />
     
     <label for="address">Adresse:</label><br/>
-    <input type="text" name="address" value="{$user->address()}" />
+    <input type="text" name="address" placeholder="{$user->address()}" />
     
     <label for="city">Ville:</label><br/>
-    <input type="text" name="city" value="{$user->city()}" />
+    <input type="text" name="city" placeholder="{$user->city()}" />
     
     <label for="postalCode">Code postal:</label><br/>
-    <input type="text" name="postalCode" value="{$user->postalCode()}"  />
+    <input type="text" name="postalCode" placeholder="{$user->postalCode()}"  />
     
     <label for="telNumber">Téléphone:</label><br/>
-    <input type="tel" name="telNumber" value="{$user->telNumber()}" />
+    <input type="tel" name="telNumber" placeholder="{$user->telNumber()}" />
     
     <label for="birth">Date de Naissance:</label><br/>
-    <input type="date" name="birth" value="{$user->birth()}" />
+    <input type="date" name="birth" placeholder="{$user->birth()}" />
     
     <label for="email">Email:</label><br/>
-    <input type="email" name="email" value="{$user->email()}"/>
+    <input type="email" name="email" placeholder="{$user->email()}"/>
     
     <label for="registrationDate">Date d'inscription:</label><br/>
-    <input type="date" name="registrationDate" value="{$user->registrationDate()}"/>
+    <input type="date" name="registrationDate" placeholder="{$user->registrationDate()}"/>
     
     <input type="submit" value="Valider" />
 
