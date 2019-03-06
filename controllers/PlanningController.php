@@ -23,7 +23,7 @@ class PlanningController extends Controller{
     public function addEvent(){
         $planningManager=new PlanningManager();
             if(!empty($_POST['title']) AND !empty($_POST['start']) AND !empty($_POST['end']) ){
-                $newPlanning=new Planning(['title'=>$_POST['title']." ".$_POST['teacher'],'start'=>$_POST['start'],'end'=>$_POST['end'],'userId'=>$_POST['userId']]);
+                $newPlanning=new Planning(['title'=>$_POST['title']."\n". $_POST['teacher'],'start'=>$_POST['start'],'end'=>$_POST['end'],'userId'=>$_POST['userId']]);
                 var_dump($newPlanning);
                 $planningManager->createPlanning($newPlanning);
                 $this->smarty->assign('newPlanning', $newPlanning);
