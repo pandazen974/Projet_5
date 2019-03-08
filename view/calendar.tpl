@@ -14,8 +14,8 @@
                <h2>Cours:</h2><p id="title"><p>
             </div>
             <div class="modal-body">    
-                <button id="delete" class="fc-addButton-button ui-button ui-state-default ui-corner-left ui-corner-right"><span class="ui-icon ui-icon-trash"></span>Supprimer</button>
-                <button id="edit" class="fc-addButton-button ui-button ui-state-default ui-corner-left ui-corner-right"><span class="ui-icon ui-icon-pencil"></span>Modifier</button>     
+                <a href="" id="delete_link"><button id="delete" class="fc-addButton-button ui-button ui-state-default ui-corner-left ui-corner-right"><span class="ui-icon ui-icon-trash"></span>Supprimer</button></a>
+                <a href="" id="edit_link"><button id="edit" class="fc-addButton-button ui-button ui-state-default ui-corner-left ui-corner-right"><span class="ui-icon ui-icon-pencil"></span>Modifier</button></a>   
             </div> 
     
          </div>
