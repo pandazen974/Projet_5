@@ -5,7 +5,6 @@ class Planning{
     private $title;
     private $start;
     private $end;
-    private $userId;
         
 public function __construct(array $donnees)
   {
@@ -57,11 +56,6 @@ public function end()
     
 }
 
-public function userId()
-{
-    return $this->_userId;
-}
-
   //SETTERS
 public function setId($id)
 {
@@ -91,13 +85,6 @@ public function setEnd($end)
     
 }
 
-public function setUserId($userId)
-{
-    
-    $this->_userId=$userId;
-    
-}
- 
 }
 
 
