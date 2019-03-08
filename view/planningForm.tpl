@@ -22,9 +22,7 @@
     
 <label for="end">Fin:</label><br/>
     <input class="datetimepicker" type="text" name="end" >
-    
-    <input  type="hidden" name="userId" value="{$teacher->id()}" >
-        
+       
     <input type="submit" value="Valider" />
 
 </form>
