@@ -13,7 +13,7 @@ Class PlanningManager extends Database{
     
     public function readPlanning(){
         try{
-            $query = "SELECT title,start,end
+            $query = "SELECT id,title,start,end
 
             FROM
                 " . $this->table_name . "
@@ -38,16 +38,14 @@ Class PlanningManager extends Database{
             $query = "INSERT INTO
                     " . $this->table_name . "
                 SET
-                 title=:title,start=:start, end=:end, userId=:userId";
+                 title=:title,start=:start, end=:end";
             $stmt = $this->conn->prepare($query);
             $title=htmlspecialchars($planning->title());
             $start= htmlspecialchars($planning->start());
             $end= htmlspecialchars($planning->end());
-            $userId= htmlspecialchars($planning->userId());
             $stmt->bindParam(':title',$title,PDO::PARAM_STR);
             $stmt->bindParam(':start',$start,PDO::PARAM_STR);
             $stmt->bindParam(':end',$end,PDO::PARAM_STR);
-            $stmt->bindParam(':userId',$userId,PDO::PARAM_INT);
             $stmt->execute();
             $planning->setId($this->conn->lastInsertId());
             var_dump($planning);
@@ -65,11 +63,13 @@ Class PlanningManager extends Database{
             $query = "UPDATE
                     " . $this->table_name . "
                 SET
-                 title=:title,start=:start, end=:end";
+                 id=:id,title=:title,start=:start, end=:end";
             $stmt = $this->conn->prepare($query);
+            $id=htmlspecialchars($planning->id());
             $title=htmlspecialchars($planning->title());
             $start= htmlspecialchars($planning->start());
             $end= htmlspecialchars($planning->end());
+            $stmt->bindParam(':id',$id,PDO::PARAM_INT);
             $stmt->bindParam(':title',$title,PDO::PARAM_STR);
             $stmt->bindParam(':start',$start,PDO::PARAM_STR);
             $stmt->bindParam(':end',$end,PDO::PARAM_STR);
