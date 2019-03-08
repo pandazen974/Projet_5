@@ -28,6 +28,21 @@ try { // Cherche la page
           $classesController->listAllclasses();
         }
         
+        if ($_GET['action'] == 'openUpdatePlanningForm') {
+          $planningController=new PlanningController();
+          $planningController->openUpdatePlanningForm();
+        }
+        
+        if ($_GET['action'] == 'modifyPlanning') {
+          $planningController=new PlanningController();
+          $planningController->modifyPlanning();
+        }
+        
+         if ($_GET['action'] == 'erasePlanning') {
+          $planningController=new PlanningController();
+          $planningController->erasePlanning();
+        }
+        
         if ($_GET['action'] == 'readEvents') {
           $planningController=new PlanningController();
           $planningController->readEvents();
