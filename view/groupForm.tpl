@@ -11,4 +11,5 @@
 </select>
     
     <input type="submit" value="Valider" />
-</form>{/block}
+</form>
+{/block}
