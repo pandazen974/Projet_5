@@ -14,6 +14,17 @@ $smarty = new Smarty();
 
 try { // Cherche la page
     if (isset($_GET['action'])) {
+        
+        if ($_GET['action'] == 'readNews') {
+          $newsController=new NewsController();
+          $newsController->readNews();
+        }
+        
+        if ($_GET['action'] == 'addNews') {
+          $newsController=new NewsController();
+          $newsController->addNews();
+        }
+        
         if ($_GET['action'] == 'openUserForm') {
           $smarty->display('view/userForm.tpl');
         }
@@ -31,6 +42,16 @@ try { // Cherche la page
         if ($_GET['action'] == 'openUpdatePlanningForm') {
           $planningController=new PlanningController();
           $planningController->openUpdatePlanningForm();
+        }
+        
+        if ($_GET['action'] == 'openLoginForm') {
+          $userController=new UserController();
+          $userController->openLoginForm();
+        }
+        
+        if ($_GET['action'] == 'openNewsForm') {
+          $newsController=new NewsController();
+          $newsController->openNewsForm();
         }
         
         if ($_GET['action'] == 'modifyPlanning') {
