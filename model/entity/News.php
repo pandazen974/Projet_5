@@ -2,7 +2,11 @@
 
 class News{
     private $id;
-    private $image;
+    private $title;
+    private $content;
+    private $imageName;
+    private $imageDescription;
+    private $newsDate;
         
 public function __construct(array $donnees)
   {
@@ -32,11 +36,39 @@ public function id()
     return $this->_id;
       
 }
+
+public function title()
+{
+      
+    return $this->_title;
+      
+}
+
+public function content()
+{
+      
+    return $this->_content;
+      
+}
   
-public function image()
+public function imageName()
 {
 
-    return $this->_image;
+    return $this->_imageName;
+
+}
+
+public function imageDescription()
+{
+
+    return $this->_imageDescription;
+
+}
+
+public function newsDate()
+{
+
+    return $this->_newsDate;
 
 }
    
@@ -48,11 +80,41 @@ public function setId($id)
 
 }
 
-public function setImage($image)
+public function setTitle($title)
 {
       
-    $this->_image=$image;
+    $this->_title=$title;
       
+}
+
+public function setContent($content)
+{
+      
+    $this->_content=$content;
+      
+}
+
+
+
+public function setImageName($imageName)
+{
+      
+    $this->_imageName=$imageName;
+      
+}
+
+public function setImageDescription($imageDescription)
+{
+
+   $this->_imageDescription=$imageDescription;
+
+}
+
+public function setNewsDate($newsDate)
+{
+
+    $this->_setNewsDate=$newsDate;
+
 }
 
 }
