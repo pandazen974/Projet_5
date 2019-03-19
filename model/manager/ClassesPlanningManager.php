@@ -1,12 +1,13 @@
 <?php
 
-Class ClassesPlanningManager{
+Class ClassesPlanningManager extends Database{
     
-    private $conn;
     private $table_name = "classesPlanning";
+    protected $conn;
+    
  
-    public function __construct($db){
-        $this->conn = $db;
+    public function __construct(){
+        $this->conn=parent::getConnection();
     }
 }
 
