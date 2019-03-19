@@ -28,7 +28,7 @@ var edt=
             // your event source
             {
                 url: '/Projet_5/?action=feedEvents', // use the `url` property
-                color: 'green',    // an option!
+                color: 'rgba(1, 50, 67, 1)',    // an option!
                 textColor: 'black'  // an option!
             }
             
@@ -48,13 +48,15 @@ var edt=
     document.getElementById('delete_link').href= 'http://localhost/Projet_5/index.php?action=erasePlanning&id='+calEvent.id;
   },
   
-  eventMouseover: function(calEvent) {
-    $(this).css('border', 'solid 2px rgb(94, 255, 161)');  
-     $(this).css('cursor', 'pointer');  
+  eventMouseover: function() {
+    $(this).css('border', 'solid 2px rgba(107, 185, 240, 1)'); 
+    $(this).css('background-color', 'rgba(37, 116, 169, 1)');
+    $(this).css('cursor', 'pointer');  
   },
   
-  eventMouseout: function(calEvent) {
+  eventMouseout: function() {
     $(this).css('border', 'transparent');  
+    $(this).css('background-color', 'rgba(1, 50, 67, 1)');
     
   },
   
