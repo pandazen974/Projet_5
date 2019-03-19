@@ -22,7 +22,9 @@
     </div>
 </div>
 
-    
+ {/block}   
+ 
+ {block name=scripts}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src='/Projet_5/public/lib/jquery.min.js'></script>
 <script src='/Projet_5/public/lib/moment.min.js'></script>
