@@ -10,62 +10,81 @@ and open the template in the editor.
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/Projet_5/public/css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
         <link rel="stylesheet" type="text/css" href="/Projet_5/public/css/jquery.datetimepicker.css"/>
         <link rel='stylesheet' href='/Projet_5/public/css/jquery-ui.css' />
         <link rel='stylesheet' href='/Projet_5/public/css/fullcalendar.css' />
+        <link href="https://fonts.googleapis.com/css?family=Signika+Negative" rel="stylesheet"> 
     </head>
  
 <body>
 <header>
 
 <div id="entete">
-    <a href="http://www.lyc-honore-d-estienne-d-orves.ac-nice.fr/"><img src="public/css/images/logo.png" alt="Logo lycée Honoré Estienne d'Orves"></a>
+    <a href="http://www.lyc-honore-d-estienne-d-orves.ac-nice.fr/"><img src="public/css/images/lycee.png" alt="Logo lycée Honoré Estienne d'Orves"></a>
 	<div id="separation">
 			<img src="public/css/images/dts.png" alt="Logo dts">
 	</div>
 </div>
-		<div id="menu">
-                    <ul>
-                        <li><a href="view/home.tpl">Accueil</a></li>
-                        <li><a href="">A propos du DTS</a>
-                                <ul class="liste" >
-                                <li><a href="index.php?action=userForm">Organigramme</a></li>
-                                <li><a href="index.php?UserForm.php">Historique</a></li>
-                                <li><a href="index.php?UserForm.php">Débouchés</a></li>
-                                <li><a href="index.php?UserForm.php">Modalités d'inscription</a></li>
+		<div class="nav">
+                    <a href="index.php?action=readNews" class="title-menu active">Accueil</a>
+                        <div class="dropdown">
+                            <button class="dropbtn">A propos du DTS<i class="fas fa-angle-down"></i></span></button>
+                            <div class='dropdown-content'>
+                                    <a href="index.php?action=userForm">Organigramme</a>
+                                    <a href="index.php?UserForm.php">Historique</a>
+                                    <a href="index.php?UserForm.php">Débouchés</a>
+                                    <a href="index.php?UserForm.php">Modalités d'inscription</a>
                       
-                            </ul>
-                        </li>
-                        <li><a href="">A propos du métier</a>
-                            <ul class="liste" >
-                                <li><a href="index.php?action=userForm">Législation</a></li>
-                                <li><a href="index.php?UserForm.php">Modalités</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Liens utiles</a>
-                            <ul class="liste" >
-                                <li><a href="index.php?action=userForm">Jobs</a></li>
-                                <li><a href="index.php?UserForm.php">Nous contacter</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="">Administration</a>
-                            <ul class="liste" >
-                                <li><a href="index.php?action=listAllUsers">Gestion des utilisateurs</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="index.php?action=readEvents">Gestion EDT</a>
-                            <ul class="liste">
-                                <li><a href="index.php?action=openPlanningForm">Plannifier un cours</a></li>
-                                <li><a href="index.php?UserForm.php">Modifier un cours</a></li>
-                                
-                            </ul>
-                        </li>
-                    </ul>
+                            </div>
+                        </div>
+                       
+                        <div class="dropdown">
+                            <button class="dropbtn">A propos du métier<i class="fas fa-angle-down"></i></button>
+                            <div class='dropdown-content'>
+                                <a href="index.php?action=userForm">Législation</a>  
+                                <a href="index.php?UserForm.php">Modalités</a>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="dropbtn">Liens utiles<i class="fas fa-angle-down"></i></button>
+                           <div class='dropdown-content'>
+                                <a href="index.php?action=userForm">Jobs</a></li>
+                                <a href="index.php?UserForm.php">Nous contacter</a></li>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="dropbtn">Administration<i class="fas fa-angle-down"></i></button>
+                            <div class='dropdown-content'>
+                            <a href="index.php?action=listAllUsers">Gestion des utilisateurs</a>
+                            <a href="index.php?action=openNewsForm">Gestion articles</a>
+                            </div>
+                        </div>
+                    
+                        <div class="dropdown">
+                            <button class="dropbtn">Gestion EDT<i class="fas fa-angle-down"></i></button>
+                            <div class='dropdown-content'>
+                                <a href="index.php?action=readEvents">Emploi du temps</a>
+                                <a href="index.php?action=openPlanningForm">Plannifier un cours</a>       
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="dropbtn">Connexion<i class="fas fa-angle-down"></i></button>
+                            <div class='dropdown-content'>
+                               <a href="index.php?action=openLoginForm">Identification</a>
+                               <a href="index.php?action=readEvents">Deconnexion</a>
+                            </div>
+                        </div>
 		</div>
 
 </header>
     
-    <div>{block name=contenu}Cette page ne contient rien{/block}</div>
+    <div>{block name=contenu}{/block}</div>
+    {block name=scripts}{/block}
     </body>
+    
 </html>
