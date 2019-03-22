@@ -60,7 +60,7 @@ and open the template in the editor.
                             <button class="dropbtn">Administration<i class="fas fa-angle-down"></i></button>
                             <div class='dropdown-content'>
                             <a href="index.php?action=listAllUsers">Gestion des utilisateurs</a>
-                            <a href="index.php?action=openNewsForm">Gestion articles</a>
+                            <a href="index.php?action=openNewsForm">Création des articles</a>
                             </div>
                         </div>
                     
