@@ -20,9 +20,19 @@ try { // Cherche la page
           $newsController->readNews();
         }
         
+        if ($_GET['action'] == 'readOneNews') {
+          $newsController=new NewsController();
+          $newsController->readOneNews();
+        }
+        
         if ($_GET['action'] == 'addNews') {
           $newsController=new NewsController();
           $newsController->addNews();
+        }
+        
+        if ($_GET['action'] == 'eraseNews') {
+          $newsController=new NewsController();
+          $newsController->eraseNews();
         }
         
         if ($_GET['action'] == 'openUserForm') {
@@ -117,7 +127,8 @@ try { // Cherche la page
     }
     
     else {
-        $smarty->display("view/home.tpl");
+        $newsController=new NewsController();
+        $newsController->readNews();
     }
 }
     
