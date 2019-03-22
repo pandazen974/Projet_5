@@ -27,7 +27,6 @@ Class NewsManager extends Database{
             $stmt->bindParam(':imageName',$imageName,PDO::PARAM_STR);
             $stmt->bindParam(':imageDescription',$imageDescription,PDO::PARAM_STR);
            $stmt->execute();
-            var_dump($news);
             return $news;
         }
             
@@ -55,7 +54,6 @@ Class NewsManager extends Database{
                 {
                     $news[]=new News($donnees);
                 }
-                var_dump($news);
             return $news;
 
             }
@@ -64,5 +62,63 @@ Class NewsManager extends Database{
             exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
         }
     
+    }
+    
+    public function updateNews(News $news){
+        try{
+            $query = "UPDATE news
+                    SET
+                    title=:title, content=:content, imageName=:imageName, imageDescription=:imageDescription
+                    WHERE id =:id";
+            $stmt = $this->conn->prepare($query);
+            $title= htmlspecialchars($news->title());
+            $content= htmlspecialchars($news->content());
+            $imageName= htmlspecialchars($news->imageName());
+            $imageDescription= htmlspecialchars($news->imageDescription());
+            $stmt->bindParam(':title',$title,PDO::PARAM_STR);
+            $stmt->bindParam(':content',$content,PDO::PARAM_STR);
+            $stmt->bindParam(':imageName',$imageName,PDO::PARAM_STR);
+            $stmt->bindParam(':imageDescription',$imageDescription,PDO::PARAM_STR);
+            $stmt->execute();
+            return $news;
+            }
+            
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }
+    
+    public function readSelectedNews($id){
+            $query = "SELECT *
+            FROM
+                " . $this->table_name . "
+            WHERE
+                id = :id
+            LIMIT
+                0,1";
+   
+            $stmt = $this->conn->prepare( $query );
+            $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+            $stmt->execute();
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if($row===false){
+            $selectedNews=null;
+            }else{
+            $selectedNews=new News($row);
+            }
+            return $selectedNews;
+            }
+    
+    public function deleteNews(News $news){
+        try{
+            $query = "DELETE FROM news WHERE id = :id";
+            $stmt = $this->conn->prepare($query);
+            $id=$news->id();
+            $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+            $stmt->execute();
+        }
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
     }
 }
