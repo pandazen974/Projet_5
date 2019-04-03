@@ -12,6 +12,13 @@ class NewsController extends Controller{
         $this->smarty->display('view/newsForm.tpl');
     }
     
+    public function openUpdateNewsForm(){
+        $newsManager=new NewsManager();
+        $news=$newsManager->readSelectedNews($_GET['id']);
+        $this->smarty->assign('news', $news);
+        $this->smarty->display('view/updateNewsForm.tpl');
+    }
+    
     public function readNews(){
         $newsManager=new NewsManager();
         $allNews=$newsManager->readAllNews();
@@ -53,14 +60,26 @@ if ($resultat) {echo "Transfert réussi";}
     
     public function modifyNews(){
         $newsManager=new NewsManager();
-        $news=$newsManager->readSelectedNews($_GET['id']);
-        $name=$news->imageName();
-        $path="C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\public\css\images\\$name";
-        unlink($path);
-        $newsManager->deleteNews($news);
+       if(!empty($_POST['title']) AND !empty($_POST['content']) AND !empty($_POST['imageName']) AND !empty($_POST['imageDescription'])){
+            if ($_FILES['image']['error'] > 0) {
+                $erreur = "Erreur lors du transfert";
+            }
+            $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
+            $extension_upload = strtolower(  substr(  strrchr($_FILES['image']['name'], '.')  ,1)  );
+            if ( in_array($extension_upload,$extensions_valides) ) {echo "Extension correcte";}
+            $image_sizes = getimagesize($_FILES['image']['tmp_name']);
+            if ($image_sizes[0] > 500 OR $image_sizes[1] > 500) {$erreur = "Image trop grande";}
+            $nom = "C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\public\css\images\\{$_POST['imageName']}.{$extension_upload}";
+
+           $resultat = move_uploaded_file($_FILES['image']['tmp_name'],$nom);
+
+            if ($resultat) {echo "Transfert réussi";}
+            $news=new News(['id'=>$_GET['id'],'title'=>$_POST['title'],'content'=>$_POST['content'],'imageName'=>$_POST['imageName'],'imageDescription'=>$_POST['imageDescription']]);
+        $newsManager->updateNews($news);
         $allNews=$newsManager->readAllNews();
         $this->smarty->assign('allNews', $allNews);
         $this->smarty->display('view/home.tpl');
+    }
     }
     
     public function eraseNews(){
