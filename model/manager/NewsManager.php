@@ -71,10 +71,12 @@ Class NewsManager extends Database{
                     title=:title, content=:content, imageName=:imageName, imageDescription=:imageDescription
                     WHERE id =:id";
             $stmt = $this->conn->prepare($query);
+            $id=htmlspecialchars($news->id());
             $title= htmlspecialchars($news->title());
             $content= htmlspecialchars($news->content());
             $imageName= htmlspecialchars($news->imageName());
             $imageDescription= htmlspecialchars($news->imageDescription());
+            $stmt->bindParam(':id',$id,PDO::PARAM_INT);
             $stmt->bindParam(':title',$title,PDO::PARAM_STR);
             $stmt->bindParam(':content',$content,PDO::PARAM_STR);
             $stmt->bindParam(':imageName',$imageName,PDO::PARAM_STR);
@@ -89,6 +91,7 @@ Class NewsManager extends Database{
     }
     
     public function readSelectedNews($id){
+        try{
             $query = "SELECT *
             FROM
                 " . $this->table_name . "
@@ -108,6 +111,11 @@ Class NewsManager extends Database{
             }
             return $selectedNews;
             }
+            catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+            
+    }
     
     public function deleteNews(News $news){
         try{
