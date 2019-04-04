@@ -13,6 +13,7 @@ class User{
     private $email;
     private $password;
     private $registrationDate;
+    private $authorized;
        
 public function __construct(array $donnees)
   {
@@ -119,6 +120,11 @@ public function registrationDate()
     return $this->_registrationDate;
     
 }
+
+public function authorized()
+{
+    return $this->_authorized;
+}
  
   //SETTERS
 public function setId($id)
@@ -207,6 +213,12 @@ public function setRegistrationDate($registrationDate)
     
 }
 
+public function setAuthorized($authorized)
+{
+    
+    $this->_authorized=$authorized;
+    
+}
 
    
 }
