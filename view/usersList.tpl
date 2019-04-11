@@ -2,8 +2,9 @@
 
 {block name=titre}Liste Utilisateurs{/block}
 {block name=contenu}<h3>Lister utilisateurs</h3>
-    <a href="index.php?action=openUserForm"><button><span class="ui-icon ui-icon-plus"></span>Ajouter</button></a>
+    
 <table id="table_id" class="display cell-border order-column stripe">
+    <a href="index.php?action=openUserForm"><button><i class="fas fa-user-plus"></i>Ajouter</button></a>
     <thead>
         <tr>
             <th>Id</th>
@@ -60,9 +61,9 @@
        
             <td>{$user->registrationDate()}</td>
             
-            <td><a href="index.php?action=openUserUpdateForm&amp;id={$user->id()}">Modifier</a></td>
+            <td><a href="index.php?action=openUserUpdateForm&amp;id={$user->id()}"><span style='color:rgba(25, 181, 254, 1)'><i class="fas fa-edit"></i></span></a></td>
             
-            <td><a href="index.php?action=eraseUser&amp;id={$user->id()}">Supprimer</a></li></td>
+            <td><a href="index.php?action=eraseUser&amp;id={$user->id()}"><span style='color:rgba(249, 105, 14, 1)'><i class="fas fa-trash"></i></span></a></li></td>
         </tr>
     
 {/foreach}
