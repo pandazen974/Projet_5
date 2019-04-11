@@ -16,6 +16,7 @@ and open the template in the editor.
         <link rel='stylesheet' href='/Projet_5/public/css/jquery-ui.css' />
         <link rel='stylesheet' href='/Projet_5/public/css/fullcalendar.css' />
         <link href="https://fonts.googleapis.com/css?family=Signika+Negative" rel="stylesheet"> 
+        <script src="https://www.google.com/recaptcha/api.js"></script>
     </head>
  
 <body>
@@ -28,7 +29,7 @@ and open the template in the editor.
 	</div>
 </div>
 		<div class="nav">
-                    <a href="index.php?action=readNews" class="title-menu active">Accueil</a>
+                    <a href="index.php?action=readNews" class="title-menu home">Accueil</a>
                         <div class="dropdown">
                             <button class="dropbtn">A propos du DTS<i class="fas fa-angle-down"></i></span></button>
                             <div class='dropdown-content'>
@@ -55,15 +56,19 @@ and open the template in the editor.
                                 <a href="index.php?UserForm.php">Nous contacter</a></li>
                             </div>
                         </div>
-                        
+                        {if ((!empty($smarty.session.user)) AND ($smarty.session.user==='Admin'))}
                         <div class="dropdown">
                             <button class="dropbtn">Administration<i class="fas fa-angle-down"></i></button>
                             <div class='dropdown-content'>
+                           <a href="index.php?action=openNewProfileForm">Création d'un profil</a>
                             <a href="index.php?action=listAllUsers">Gestion des utilisateurs</a>
                             <a href="index.php?action=openNewsForm">Création des articles</a>
+                            <a href="index.php?action=manageAccount">Gestion des comptes utilisateurs</a>
                             </div>
                         </div>
-                    
+                        {/if}
+                        
+                        {if ((!empty($smarty.session.user)) AND (($smarty.session.user==='Admin') OR ($smarty.session.user==='Enseignant')))}
                         <div class="dropdown">
                             <button class="dropbtn">Gestion EDT<i class="fas fa-angle-down"></i></button>
                             <div class='dropdown-content'>
@@ -71,18 +76,30 @@ and open the template in the editor.
                                 <a href="index.php?action=openPlanningForm">Plannifier un cours</a>       
                             </div>
                         </div>
+                        {/if}
+                        
                         
                         <div class="dropdown">
                             <button class="dropbtn">Connexion<i class="fas fa-angle-down"></i></button>
                             <div class='dropdown-content'>
-                               <a href="index.php?action=openLoginForm">Identification</a>
-                               <a href="index.php?action=readEvents">Deconnexion</a>
+                                {if (!empty($smarty.session.user))}<a href="index.php?action=logOut">Se déconnecter</a>
+                                {else}<a href="index.php?action=openLoginForm">Identification</a> {/if}
+                             
+                               
                             </div>
                         </div>
+                        
+                            
+                       
 		</div>
 
 </header>
-    
+    <div class="user">
+                            {if (empty($smarty.session.user))} <p>Visiteur</p>{else}
+                                <p>Statut: {$smarty.session.user}</p>{/if}
+                            
+                        </div>
+                                   
     <div>{block name=contenu}{/block}</div>
     {block name=scripts}{/block}
     </body>
