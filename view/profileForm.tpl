@@ -5,9 +5,9 @@
 {block name=contenu}<form action="index.php?action=registerUsersProfile&amp;id={$newUser->id()}" method="post">
 <label for="profile">Veuillez renseigner le profil de l'utilisateur:</label><br/>
 <select name="profile">
-    <option value="1">Administrateur</option>
-    <option value="2">Enseignant</option>
-    <option value="3">Etudiant</option>
+    {foreach $profiles as $profile}
+    <option value={$profile->id()}>{$profile->profileName()}</option>
+    {/foreach}
 </select>
     
     <input type="submit" value="Valider" />
