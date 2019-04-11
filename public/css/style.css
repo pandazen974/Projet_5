@@ -48,7 +48,7 @@ overflow: hidden;
 
 
     
-.active {
+.home {
   background-color: rgba(0, 230, 64, 1);
   color: white;
 }
@@ -232,10 +232,7 @@ form{
 	display:flex;
 	flex-direction: column;
 	margin:auto;
-	margin-top:60px;
-	
-	
-	
+	margin-top:60px;	
 }
 
 
@@ -304,6 +301,8 @@ input{
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+
+/* Full calendar */
 #eventOptions{
      background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
@@ -372,5 +371,45 @@ input{
 
 #table_id th{
     background-color: rgba(1, 152, 117, 1);
+}
+
+/*news*/
+h2{
+    text-align:center;
+}
+
+.container{
+    display:flex;
+}
+
+.newsBox{
+    flex-direction: column;
+    width:22.5%;
+    flex-wrap: wrap;
+    margin:2.5%;
+    box-shadow: 8px 8px 0px rgba(228, 241, 254, 1); 
+}
+
+
+.imagesBox img{
+    max-width:100%;
+    height:auto;
+}
+
+.fullNews{
+    width:50%;
+    margin:auto;
+}
+
+.fullNews{
+    box-shadow: 8px 8px 0px rgba(228, 241, 254, 1); 
+}
+
+td{
+    text-align:center;
+}
+
+#user{
+    float:right;
 }
 
