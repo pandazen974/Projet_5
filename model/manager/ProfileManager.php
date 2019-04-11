@@ -1,17 +1,18 @@
 <?php
 
-Class ProfileManager{
+Class ProfileManager extends Database{
     
-    private $conn;
     private $table_name = "profile";
+    protected $conn;
  
-    public function __construct($db){
-        $this->conn = $db;
+    public function __construct(){
+        
+        $this->conn=parent::getConnection();  
     }
     
-        public function readAllStudents(){
+    public function readAllProfile(){
         try{
-            $query = "SELECT *,DATE_FORMAT(registrationDate, '%d/%m/%Y') as registrationDate,DATE_FORMAT(birth, '%d/%m/%Y') as birth
+            $query = "SELECT *
 
             FROM
                 " . $this->table_name . "
@@ -24,17 +25,38 @@ Class ProfileManager{
 
             while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
                 {
-                    $users[]=new User($donnees);
+                    $profile[]=new Profile($donnees);
                 }
 
-            return $users;
+            return $profile;
 
             }
     
         catch (Exception $e){
             exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
         }
-    
     }
+    
+    public function createProfile(Profile $profile){
+        try{
+            $query = "INSERT INTO
+                    " . $this->table_name . "
+                SET
+                 profileName=:profile";
+            $stmt = $this->conn->prepare($query);
+            $profileName= htmlspecialchars($profile->profileName());
+            $stmt->bindParam(':profile',$profileName,PDO::PARAM_STR);
+            $stmt->execute();
+            $profile->setId($this->conn->lastInsertId());
+            return $profile;
+        
+        }
+        
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }
+    
+    
 }
 
