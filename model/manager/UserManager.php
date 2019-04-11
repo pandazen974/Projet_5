@@ -46,6 +46,27 @@ Class UserManager extends Database{
         }
     }
     
+    public function readSelectedUser($id){
+            $query = "SELECT *
+            FROM
+                " . $this->table_name . "
+            WHERE
+                id = :id
+            LIMIT
+                0,1";
+   
+            $stmt = $this->conn->prepare( $query );
+            $stmt->bindParam(':id', $id,PDO::PARAM_INT);
+            $stmt->execute();
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if($row===false){
+            $selectedUser=null;
+            }else{
+            $selectedUser=new User($row);
+            }
+            return $selectedUser;
+            }
+    
     public function readAllUsers(){
         try{
             $query = "SELECT *,DATE_FORMAT(registrationDate, '%d/%m/%Y') as registrationDate,DATE_FORMAT(birth, '%d/%m/%Y') as birth
@@ -74,6 +95,56 @@ Class UserManager extends Database{
     
     }
     
+    
+    
+    public function readAccount(){
+        try{
+            $query = "SELECT *,DATE_FORMAT(registrationDate, '%d/%m/%Y') as registrationDate,DATE_FORMAT(birth, '%d/%m/%Y') as birth
+
+            FROM
+                " . $this->table_name . "
+            WHERE
+                authorized = '0'
+           ";
+
+            $stmt = $this->conn->prepare( $query );
+            $stmt->execute();
+
+            while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
+                {
+                    $users[]=new User($donnees);
+                }
+
+            return $users;
+
+            }
+    
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    
+    }
+    
+    public function authorizeAccount(User $user){
+        try{
+            $query = "UPDATE user
+                    SET
+                    authorized=:authorized
+                    WHERE id=:id";
+            $stmt = $this->conn->prepare($query);
+            $authorized=htmlspecialchars($user->authorized());
+            $id= htmlspecialchars($user->id());
+            $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+            $stmt->bindParam(':authorized',$authorized,PDO::PARAM_STR);
+            $stmt->execute();
+            return $user;
+            }
+            
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }
+    
     public function readTeachersOnly(){
         try{
             $query = "SELECT u.id, u.lastName, u.firstName FROM user AS u
@@ -99,6 +170,86 @@ Class UserManager extends Database{
         }
     
     }
+    
+    public function verifyAdmin($email){
+        try{
+            $query = "SELECT u.id, u.lastName, u.firstName FROM user AS u
+                INNER JOIN usersprofile AS up ON u.id = up.userId 
+                INNER JOIN profile as p ON up.profileId=p.id
+                WHERE profileName = 'Administrateur' AND email=:email
+           ";
+            var_dump($query);
+            $stmt = $this->conn->prepare( $query );
+            $stmt->bindParam(':email', $email);
+            var_dump($stmt);
+             $admin=$stmt->execute();
+             if ($stmt->rowCount() ==0) {
+               return false;
+            }
+            
+           
+            return $admin;
+            }
+    
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    
+    }
+    
+     public function verifyStudent($email){
+        try{
+            $query = "SELECT u.id, u.lastName, u.firstName FROM user AS u
+                INNER JOIN usersprofile AS up ON u.id = up.userId 
+                INNER JOIN profile as p ON up.profileId=p.id
+                WHERE profileName = 'Etudiant' AND email=:email
+           ";
+
+            $stmt = $this->conn->prepare( $query );
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            $student=$stmt->execute();
+            if ($stmt->rowCount() ==0) {
+               return false;
+            }
+            
+            return $student;
+            }
+            
+    
+    
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    
+    }
+    
+    public function verifyTeacher($email){
+        try{
+            $query = "SELECT u.id, u.lastName, u.firstName FROM user AS u
+                INNER JOIN usersprofile AS up ON u.id = up.userId 
+                INNER JOIN profile as p ON up.profileId=p.id
+                WHERE profileName = 'Enseignant' AND email=:email
+           ";
+
+            $stmt = $this->conn->prepare( $query );
+            $stmt->bindParam(':email', $email);
+            $stmt->execute();
+            $teacher= $stmt->execute();
+             if ($stmt->rowCount() ==0) {
+               return false;
+            }
+            
+            return $teacher;
+            }
+
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    
+    }
+    
+   
     
     
     
@@ -138,27 +289,63 @@ Class UserManager extends Database{
         }
     }
     
-     public function readSelectedUser($id){
-            $query = "SELECT *
+    public function updatePassword(User $user){
+        try{
+            $query = "UPDATE user
+                    SET
+                    password=:password, authorized=:authorized
+                    WHERE email=:email";
+            $stmt = $this->conn->prepare($query);
+            $email= htmlspecialchars($user->email());
+            $protected= htmlspecialchars($user->password());
+            $password=password_hash($protected,PASSWORD_DEFAULT);
+            $authorized=htmlspecialchars($user->authorized());
+            $stmt->bindParam(':password',$password,PDO::PARAM_STR);
+            $stmt->bindParam(':authorized',$authorized,PDO::PARAM_STR);
+            $stmt->bindParam(':email',$email,PDO::PARAM_STR);
+            $stmt->execute();
+            return $user;
+            }
+            
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }
+    
+    public function getHashedPassword(User $user){
+        $hash=$user->password();
+        return $hash;
+    }
+    
+    public function verifyUserExistence($email){
+            try{
+            $query = "SELECT*
             FROM
                 " . $this->table_name . "
             WHERE
-                id = :id
-            LIMIT
-                0,1";
+                email =:email";
    
-            $stmt = $this->conn->prepare( $query );
-            $stmt->bindParam(':id', $id,PDO::PARAM_INT);
-            $stmt->execute();
-            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
-            if($row===false){
-            $selectedUser=null;
-            }else{
-            $selectedUser=new User($row);
-            }
-            return $selectedUser;
-            }
-    
+    $stmt = $this->conn->prepare( $query );
+    var_dump($email);
+    $stmt->bindParam(':email', $email);
+    $stmt->execute();
+   
+    $theUser = $stmt->fetch(\PDO::FETCH_ASSOC);
+    var_dump($theUser);
+    if ($theUser===false){
+        $user=null;
+    }else{
+    $user=new User($theUser);
+    var_dump($user);
+    }
+    return $user;
+    }
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }
+            
+            
     public function deleteUser(User $user){
         try{
             $query = "DELETE FROM user WHERE id = :id";
@@ -170,5 +357,9 @@ Class UserManager extends Database{
         catch (Exception $e){
             exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
         }
+    }
+    
+    public function endSession(){
+        session_unset(); 
     }
 }
