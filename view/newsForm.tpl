@@ -11,7 +11,7 @@
     <input type="text" name="title" />
     
     <label for="content">Contenu:</label><br/>
-    <input type="content" name="content" />
+    <textarea name="content"></textarea><br/>
     
     <label for="imageName">Nom de l'image:</label><br/>
     <input type="text" name="imageName"><br/>
@@ -27,3 +27,5 @@
     <input type="submit" value="Valider"/>
   </form>
 {/block}   
+
+
