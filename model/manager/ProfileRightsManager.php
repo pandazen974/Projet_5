@@ -33,24 +33,24 @@ Class ProfileRightsManager extends Database{
     }
     
     
-    public function showAdminRights(){
+    public function selectProfileRights($id){
         try{
-            $query = "SELECT u.id, u.lastName, u.firstName, p.profileName, r.rightName FROM user AS u 
-                INNER JOIN usersprofile AS up ON u.id = up.userId 
-                INNER JOIN profile as p ON up.profileId=p.id
-                INNER JOIN profilerights AS pr ON pr.profileId=p.id
-                INNER JOIN rights AS r ON r.id=pr.rightsId
-                WHERE profileName='Administrateur'
+            $query = "SELECT r.id FROM rights AS r 
+                INNER JOIN profilerights AS pr ON r.id=pr.rightsId 
+                INNER JOIN profile as p ON pr.profileId=p.id 
+                WHERE p.id=:profileId;
+                
            ";
 
             $stmt = $this->conn->prepare( $query );
+            $stmt->bindValue(':profileId',$id,PDO::PARAM_INT);
             $stmt->execute();
 
             while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
                 {
-                    $user[]=new User($donnees);
+                    $case[]=$donnees;
                 }
-            return $user;
+            return $case;
 
             }
     
@@ -58,5 +58,49 @@ Class ProfileRightsManager extends Database{
             exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
         }
     
+    }
+    
+    public function getSelectedProfileRights($profileId){
+       try{
+            $query = "SELECT*
+                FROM
+                    " . $this->table_name . "
+                WHERE
+                profileId=:profileId";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':profileId',$profileId,PDO::PARAM_INT);
+            $stmt->execute();
+             while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
+                {
+                    $profileRights=new ProfileRights($donnees);
+                }
+            var_dump($profileRights);
+            return $profileRights;
+        
+        }
+        
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }      
+    
+     public function deleteProfileRights(ProfileRights $profileRights){
+        try{
+            $query = "DELETE FROM
+                    " . $this->table_name . "
+                WHERE
+                profileId=:profileId";
+            $stmt = $this->conn->prepare($query);
+            $profileId= htmlspecialchars($profileRights->profileId());
+            $stmt->bindParam(':profileId',$profileId,PDO::PARAM_INT);
+            $stmt->execute();
+            var_dump($profileRights);
+            return $profileRights;
+        
+        }
+        
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
     }
 }
