@@ -21,8 +21,15 @@ class NewsController extends Controller{
     
     public function readNews(){
         $newsManager=new NewsManager();
-        $allNews=$newsManager->readAllNews();
+        $page = (!empty($_GET['page']) ? $_GET['page'] : 1);
+        $end= 4;
+        $start = ($page - 1) * $end;
+        $allNews=$newsManager->readAllNews($start,$end);
+        $num=$newsManager->countAll();
+        $totalPages = ceil($num / $end);
         $this->smarty->assign('allNews', $allNews);
+        $this->smarty->assign('page', $page);
+        $this->smarty->assign('totalPages', $totalPages);
         $this->smarty->display('view/home.tpl');
     }
     
@@ -45,12 +52,9 @@ class NewsController extends Controller{
             $image_sizes = getimagesize($_FILES['image']['tmp_name']);
             if ($image_sizes[0] > 500 OR $image_sizes[1] > 500) {$erreur = "Image trop grande";}
             $nom = "C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\public\css\images\\{$_POST['imageName']}.{$extension_upload}";
-
-$resultat = move_uploaded_file($_FILES['image']['tmp_name'],$nom);
-
-if ($resultat) {echo "Transfert réussi";}
+            $resultat = move_uploaded_file($_FILES['image']['tmp_name'],$nom);
+            if ($resultat) {echo "Transfert réussi";}
             $news=new News(['title'=>$_POST['title'],'content'=>$_POST['content'],'imageName'=>$_POST['imageName'],'imageDescription'=>$_POST['imageDescription']]);
-            
             $newsManager->createNews($news);
             $allNews=$newsManager->readAllNews();
             $this->smarty->assign('allNews', $allNews);
@@ -70,34 +74,28 @@ if ($resultat) {echo "Transfert réussi";}
             $image_sizes = getimagesize($_FILES['image']['tmp_name']);
             if ($image_sizes[0] > 500 OR $image_sizes[1] > 500) {$erreur = "Image trop grande";}
             $nom = "C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\public\css\images\\{$_POST['imageName']}.{$extension_upload}";
-
-           $resultat = move_uploaded_file($_FILES['image']['tmp_name'],$nom);
-
+            $resultat = move_uploaded_file($_FILES['image']['tmp_name'],$nom);
             if ($resultat) {echo "Transfert réussi";}
             $news=new News(['id'=>$_GET['id'],'title'=>$_POST['title'],'content'=>$_POST['content'],'imageName'=>$_POST['imageName'],'imageDescription'=>$_POST['imageDescription']]);
-        $newsManager->updateNews($news);
-        $allNews=$newsManager->readAllNews();
-        $this->smarty->assign('allNews', $allNews);
-        $this->smarty->display('view/home.tpl');
+            $newsManager->updateNews($news);
+            $allNews=$newsManager->readAllNews();
+            $this->smarty->assign('allNews', $allNews);
+            $this->smarty->display('view/home.tpl');
     }
     }
     
     public function eraseNews(){
         $newsManager=new NewsManager();
         $news=$newsManager->readSelectedNews($_GET['id']);
-        
         $extensions_valides = array( '.jpg' , '.jpeg' , '.gif' , '.png' );
         foreach ($extensions_valides as $ext) {
             $name=$news->imageName().$ext;
             var_dump($name);
             $filename = "C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\public\css\images\\$name";
             if (file_exists ($filename)){
-                var_dump($filename);
-                unlink($filename); 
-                
+                unlink($filename);    
             }
         }
-       
         $newsManager->deleteNews($news);
         $allNews=$newsManager->readAllNews();
         $this->smarty->assign('allNews', $allNews);
