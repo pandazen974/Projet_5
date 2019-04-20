@@ -104,7 +104,7 @@ Class UserManager extends Database{
             FROM
                 " . $this->table_name . "
             WHERE
-                authorized = '0'
+                authorized = 0
            ";
 
             $stmt = $this->conn->prepare( $query );
@@ -170,88 +170,6 @@ Class UserManager extends Database{
         }
     
     }
-    
-    public function verifyAdmin($email){
-        try{
-            $query = "SELECT u.id, u.lastName, u.firstName FROM user AS u
-                INNER JOIN usersprofile AS up ON u.id = up.userId 
-                INNER JOIN profile as p ON up.profileId=p.id
-                WHERE profileName = 'Administrateur' AND email=:email
-           ";
-            var_dump($query);
-            $stmt = $this->conn->prepare( $query );
-            $stmt->bindParam(':email', $email);
-            var_dump($stmt);
-             $admin=$stmt->execute();
-             if ($stmt->rowCount() ==0) {
-               return false;
-            }
-            
-           
-            return $admin;
-            }
-    
-        catch (Exception $e){
-            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
-        }
-    
-    }
-    
-     public function verifyStudent($email){
-        try{
-            $query = "SELECT u.id, u.lastName, u.firstName FROM user AS u
-                INNER JOIN usersprofile AS up ON u.id = up.userId 
-                INNER JOIN profile as p ON up.profileId=p.id
-                WHERE profileName = 'Etudiant' AND email=:email
-           ";
-
-            $stmt = $this->conn->prepare( $query );
-            $stmt->bindParam(':email', $email);
-            $stmt->execute();
-            $student=$stmt->execute();
-            if ($stmt->rowCount() ==0) {
-               return false;
-            }
-            
-            return $student;
-            }
-            
-    
-    
-        catch (Exception $e){
-            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
-        }
-    
-    }
-    
-    public function verifyTeacher($email){
-        try{
-            $query = "SELECT u.id, u.lastName, u.firstName FROM user AS u
-                INNER JOIN usersprofile AS up ON u.id = up.userId 
-                INNER JOIN profile as p ON up.profileId=p.id
-                WHERE profileName = 'Enseignant' AND email=:email
-           ";
-
-            $stmt = $this->conn->prepare( $query );
-            $stmt->bindParam(':email', $email);
-            $stmt->execute();
-            $teacher= $stmt->execute();
-             if ($stmt->rowCount() ==0) {
-               return false;
-            }
-            
-            return $teacher;
-            }
-
-        catch (Exception $e){
-            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
-        }
-    
-    }
-    
-   
-    
-    
     
     public function updateUser(User $user){
         try{
@@ -326,17 +244,14 @@ Class UserManager extends Database{
                 email =:email";
    
     $stmt = $this->conn->prepare( $query );
-    var_dump($email);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
    
     $theUser = $stmt->fetch(\PDO::FETCH_ASSOC);
-    var_dump($theUser);
     if ($theUser===false){
         $user=null;
     }else{
     $user=new User($theUser);
-    var_dump($user);
     }
     return $user;
     }
