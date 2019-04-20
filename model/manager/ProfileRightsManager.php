@@ -22,7 +22,6 @@ Class ProfileRightsManager extends Database{
             $stmt->bindParam(':profileId',$profileId,PDO::PARAM_INT);
             $stmt->bindParam(':rightsId',$rightsId,PDO::PARAM_INT);
             $stmt->execute();
-            var_dump($profileRights);
             return $profileRights;
         
         }
@@ -74,7 +73,6 @@ Class ProfileRightsManager extends Database{
                 {
                     $profileRights=new ProfileRights($donnees);
                 }
-            var_dump($profileRights);
             return $profileRights;
         
         }
@@ -94,7 +92,6 @@ Class ProfileRightsManager extends Database{
             $profileId= htmlspecialchars($profileRights->profileId());
             $stmt->bindParam(':profileId',$profileId,PDO::PARAM_INT);
             $stmt->execute();
-            var_dump($profileRights);
             return $profileRights;
         
         }
