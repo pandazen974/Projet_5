@@ -57,6 +57,26 @@ public function readSelectedStudentGroup($userId){
         exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
     }
 }
+
+ public function returnUserGroup($email){
+            $query = "SELECT sg.groupId FROM studentsgroup AS sg 
+                    INNER JOIN `group` AS g ON sg.groupId=g.id 
+                    INNER JOIN user AS u ON u.id=sg.userId
+                    WHERE u.email=:email";
+   
+            $stmt = $this->conn->prepare( $query );
+            var_dump($email);
+            $stmt->bindParam(':email', $email,PDO::PARAM_STR);
+            $stmt->execute();
+            while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
+                {
+                    $group[]=$donnees;
+                }
+               
+            return $group;
+
+            
+            }
     
 public function deleteStudentGroup(StudentsGroup $studentsGroup){
     try{
