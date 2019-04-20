@@ -51,6 +51,27 @@ Class UsersProfileManager extends Database{
             }
             return $selectedUserProfile;
             }
+            
+            public function returnUserProfile($email){
+            $query = "SELECT up.profileId FROM usersprofile AS up 
+                    INNER JOIN profile AS p ON up.profileId=p.id
+                    INNER JOIN user AS u ON up.userId=u.id
+                    WHERE u.email=:email";
+   
+            $stmt = $this->conn->prepare( $query );
+            var_dump($email);
+            $stmt->bindParam(':email', $email,PDO::PARAM_STR);
+            $stmt->execute();
+            while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
+                {
+                    $profile[]=$donnees;
+                }
+               
+            return $profile;
+
+            
+            }
+            
     
         public function deleteUserProfile(UsersProfile $usersProfile){
         try{
