@@ -74,6 +74,67 @@ Class GroupPlanningManager extends Database{
             }
             return $selectedGroupPlanning;
             }
+            
+                
+    public function readPlanningOne(){
+        try{
+            $query = "SELECT p.id,p.title,p.start,p.end FROM planning AS p
+                     INNER JOIN groupplanning AS gp ON gp.planningId=p.id
+                     INNER JOIN `group` AS g ON g.id=gp.groupId
+                     WHERE g.id='1';
+           ";
+
+            $stmt = $this->conn->prepare( $query );
+            $stmt->execute();
+            $planning=json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+            return $planning;
+            }
+    
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    
+    }
+    
+    public function readPlanningTwo(){
+        try{
+            $query = "SELECT p.id,p.title,p.start,p.end FROM planning AS p
+                     INNER JOIN groupplanning AS gp ON gp.planningId=p.id
+                     INNER JOIN `group` AS g ON g.id=gp.groupId
+                     WHERE g.id='2';
+           ";
+
+            $stmt = $this->conn->prepare( $query );
+            $stmt->execute();
+            $planning=json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+            return $planning;
+            }
+    
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    
+    }
+    
+     public function readPlanningThree(){
+        try{
+            $query = "SELECT p.id,p.title,p.start,p.end FROM planning AS p
+                     INNER JOIN groupplanning AS gp ON gp.planningId=p.id
+                     INNER JOIN `group` AS g ON g.id=gp.groupId
+                     WHERE g.id='3';
+           ";
+
+            $stmt = $this->conn->prepare( $query );
+            $stmt->execute();
+            $planning=json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+            return $planning;
+            }
+    
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    
+    }
     
     public function deleteGroupPlanning(GroupPlanning $groupPlanning){
         try{
