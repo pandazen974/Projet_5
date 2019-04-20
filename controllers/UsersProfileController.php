@@ -11,7 +11,7 @@ public function registerUsersProfile(){
     $usersProfileManager=new UsersProfileManager();
     
                 $usersProfile=new UsersProfile(['userId'=>$_GET['id'],'profileId'=>$_POST['profile']]);
-                if($_POST['profile']==="Etudiant") {
+                if($_POST['profile']==="3") {
                     $newUserProfile=$usersProfileManager->setUsersProfile($usersProfile);
                     $this->smarty->assign('newUserProfile', $newUserProfile);
                     var_dump($newUserProfile);
