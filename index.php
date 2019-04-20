@@ -107,9 +107,19 @@ try {
           $classesController->listAllclasses();
         }
         
-        if ($_GET['action'] == 'feedEvents') {
+        if ($_GET['action'] == 'feedGroupOneEvents') {
           $planningController=new PlanningController();
-          $planningController->feedEvents();
+          $planningController->feedGroupOneEvents();
+        }
+        
+        if ($_GET['action'] == 'feedGroupTwoEvents') {
+          $planningController=new PlanningController();
+          $planningController->feedGroupTwoEvents();
+        }
+        
+        if ($_GET['action'] == 'feedGroupThreeEvents') {
+          $planningController=new PlanningController();
+          $planningController->feedGroupThreeEvents();
         }
         
         if ($_GET['action'] == 'addEvent') {
@@ -176,10 +186,15 @@ try {
         
         if ($_GET['action'] =='rejectAccount') {
           $userController=new UserController();
-          $userController->manageAccount();  
+          $userController->rejectAccount();  
         }
         
         //Profile
+         if ($_GET['action'] =='listAllProfile') {
+          $profileController=new ProfileController();
+          $profileController->listAllProfile();  
+        }
+        
         if ($_GET['action'] =='openNewProfileForm') {
           $profileController=new ProfileController();
           $profileController->openNewProfileForm();  
@@ -193,6 +208,26 @@ try {
         if ($_GET['action'] =='addProfileRights') {
           $profileRightsController=new ProfileRightsController();
           $profileRightsController->addProfileRights();  
+        }
+        
+        if ($_GET['action'] =='showProfileRights') {
+          $profileRightsController=new ProfileRightsController();
+          $profileRightsController->showProfileRights();  
+        }
+        
+        if ($_GET['action'] =='modifyProfileRights') {
+          $profileRightsController=new ProfileRightsController();
+          $profileRightsController->modifyProfileRights();  
+        }
+        
+        if ($_GET['action'] =='openEraseProfileForm') {
+          $profileRightsController=new ProfileRightsController();
+          $profileRightsController->openEraseProfileForm();  
+        }
+        
+         if ($_GET['action'] =='eraseProfileRights') {
+          $profileRightsController=new ProfileRightsController();
+          $profileRightsController->eraseProfileRights();  
         }
         
         //Rights
