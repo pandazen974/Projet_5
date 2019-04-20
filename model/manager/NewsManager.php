@@ -37,19 +37,22 @@ Class NewsManager extends Database{
         }
     
     
-        public function readAllNews(){
+        public function readAllNews($start,$end){
         try{
+           
+            
             $query = "SELECT *,DATE_FORMAT(newsDate, '%d/%m/%Y') as newsDate
 
             FROM
                 " . $this->table_name . "
-            ORDER BY
-                id
+            LIMIT :end 
+            OFFSET :start
            ";
 
             $stmt = $this->conn->prepare( $query );
+            $stmt->bindValue('end',$end,PDO::PARAM_INT);
+            $stmt->bindValue('start', $start, PDO::PARAM_INT);
             $stmt->execute();
-
             while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
                 {
                     $news[]=new News($donnees);
@@ -63,6 +66,14 @@ Class NewsManager extends Database{
         }
     
     }
+    
+        public function countAll(){
+        $query = "SELECT id FROM " . $this->table_name . "";
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+        $num = $stmt->rowCount();
+        return $num;
+        }
     
     public function updateNews(News $news){
         try{
