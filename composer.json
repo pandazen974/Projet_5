@@ -1,5 +1,6 @@
 {
     "require": {
-        "nette/robot-loader": "^3.1"
+        "nette/robot-loader": "^3.1",
+        "phpmailer/phpmailer": "^6.0"
     }
 }
