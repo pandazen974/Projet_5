@@ -237,6 +237,12 @@ try {
           $rightsController=new RightsController();
           $rightsController->setRights();  
         }
+        
+        //Pages
+        if ($_GET['action'] =='openPageEditor') {
+          $pagesController=new PagesController();
+          $pagesController->openPageEditor();  
+        }
     }
     
     else {
