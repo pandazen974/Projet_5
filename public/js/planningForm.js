@@ -17,9 +17,13 @@ jQuery('.datetimepicker').datetimepicker({
    ]
   }
  },
+
  timepicker:true,
- startDate:'+2019/01/01'
+ startDate:'+2019/01/01',
+ format: 'd-m-Y H:i'
+
 });
+
 
 }
 
