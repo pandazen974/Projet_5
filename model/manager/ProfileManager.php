@@ -57,6 +57,46 @@ Class ProfileManager extends Database{
         }
     }
     
+    public function getSelectedProfile($id){
+       try{
+            $query = "SELECT*
+                FROM
+                    " . $this->table_name . "
+                WHERE
+                id=:id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+            $stmt->execute();
+             while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
+                {
+                    $profile=new Profile($donnees);
+                }
+            var_dump($profile);
+            return $profile;
+        
+        }
+        
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }      
     
+     public function deleteProfile(Profile $profile){
+        try{
+            $query = "DELETE FROM
+                    " . $this->table_name . "
+                WHERE
+                id=:id";
+            $stmt = $this->conn->prepare($query);
+            $id= htmlspecialchars($profile->id());
+            $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+            $stmt->execute();
+        
+        }
+        
+        catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+        }
+    }
 }
 
