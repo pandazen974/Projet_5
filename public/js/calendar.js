@@ -1,5 +1,3 @@
-/* global modal */
-
 var edt=
 {
     
@@ -27,12 +25,12 @@ var edt=
             // your event source
             {
                 url: '/Projet_5/?action=feedGroupOneEvents', // use the `url` property
-                color: 'rgba(0, 230, 64, 1)',    // an option!
+                color: 'rgba(219, 10, 91, 1)',    // an option!
                 textColor: 'black'  // an option!
             },
             {
                 url: '/Projet_5/?action=feedGroupTwoEvents', // use the `url` property
-                color: 'rgba(77, 19, 209, 1)',    // an option!
+                color: 'rgba(77, 5, 232, 1)',    // an option!
                 textColor: 'black'  // an option!
             },
             {
