@@ -68,7 +68,6 @@
 </tbody>
 <div id="myModaltwo" class="modal">
 
-  <!-- Modal content -->
   <div class="modal-content">
     <span class="shut">&times;</span>
     <p>Voulez vous supprimer cet utilisateur?</p>
