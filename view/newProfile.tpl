@@ -6,6 +6,6 @@
 <label for="profile">Choisir un nom pour le profil:</label><br/>
     <input type="text" name="profile" />
     
-    <input type="submit" value="Valider" />
+    <input type="submit" class="form_button" value="Valider" />
 </form>
 {/block}
