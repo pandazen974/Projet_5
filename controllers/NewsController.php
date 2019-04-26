@@ -22,7 +22,7 @@ class NewsController extends Controller{
     public function readNews(){
         $newsManager=new NewsManager();
         $page = (!empty($_GET['page']) ? $_GET['page'] : 1);
-        $end= 6;
+        $end=3;
         $start = ($page - 1) * $end;
         $allNews=$newsManager->readAllNews($start,$end);
         $num=$newsManager->countAll();
