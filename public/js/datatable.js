@@ -21,10 +21,30 @@ $(document).ready(function () {
         { responsivePriority: 8 },
         { responsivePriority: 9 },
         { responsivePriority: 10 },
-        
-        
-        
         { responsivePriority: 2 }
+        
+    ],
+        scrollX: false,
+        language: {
+
+            url: "/Projet_5/public/js/french.json"
+
+        }
+         
+
+    });
+    
+    $('#account').DataTable({
+        
+        responsive:true,
+        columns: [
+        { responsivePriority: 1 },
+        { responsivePriority: 2 },
+        { responsivePriority: 6 },
+        { responsivePriority: 7 },
+        { responsivePriority: 3 },
+        { responsivePriority: 4 },
+        { responsivePriority: 5 }
         
     ],
         scrollX: false,
