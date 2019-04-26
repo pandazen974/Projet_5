@@ -4,11 +4,10 @@
 {block name=contenu}<h3>Lister utilisateurs</h3>
     
 <table id="table_id" class="display cell-border order-column stripe">
-    <a href="index.php?action=openUserForm"><button><i class="fas fa-user-plus"></i>Ajouter</button></a>
+    {if in_array(13,$smarty.session.user)}<a href="index.php?action=openUserForm" id="add-link"><button id="add-button"><i class="fas fa-user-plus"></i>Ajouter</button></a>{/if}
     <thead>
         <tr>
-            <th>Id</th>
-     
+            
             <th>Nom</th>
 
             <th>Prénom</th>
@@ -39,7 +38,6 @@
 {foreach $users as $user}
    
         <tr>
-            <td>{$user->id()}</td>
 
             <td>{$user->lastName()}</td>
 
@@ -63,17 +61,31 @@
             
             <td><a href="index.php?action=openUserUpdateForm&amp;id={$user->id()}"><span style='color:rgba(25, 181, 254, 1)'><i class="fas fa-edit"></i></span></a></td>
             
-            <td><a href="index.php?action=eraseUser&amp;id={$user->id()}"><span style='color:rgba(249, 105, 14, 1)'><i class="fas fa-trash"></i></span></a></li></td>
+            <td><button class="push"><span style='color:rgba(249, 105, 14, 1)'><i class="fas fa-trash"></i></span></button></td>
         </tr>
     
 {/foreach}
 </tbody>
+<div id="myModaltwo" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="shut">&times;</span>
+    <p>Voulez vous supprimer cet utilisateur?</p>
+    <a href="index.php?action=eraseUser&amp;id={$user->id()}"><button>Supprimer</button></a>
+  </div>
+
+</div>
 </table>
+
 {/block}
 {block name=scripts}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf8" src="https:////cdn.datatables.net/plug-ins/1.10.19/i18n/French.json"></script>
-<script src="/Projet_5/public/js/datatable.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https:////cdn.datatables.net/plug-ins/1.10.19/i18n/French.json"></script>
+    <script src="/Projet_5/public/js/datatable.js"></script>
+    <script src="/Projet_5/public/js/modal2.js"></script>
 {/block}
 
