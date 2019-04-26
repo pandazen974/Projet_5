@@ -12,6 +12,7 @@ class PagesManager extends Database{
     }
     
 public function readAllPages(){
+    try{
     $query = "SELECT *
 
             FROM
@@ -29,11 +30,15 @@ public function readAllPages(){
     }
 
     return $pages;
-
+    }
+    catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+    }
     
 }
 
 public function readPageWithId($id){
+    try{
    $query = "SELECT *
             FROM
                 " . $this->table_name . "
@@ -52,10 +57,14 @@ public function readPageWithId($id){
             $selectedPage=new Pages($row);
             }
             return $selectedPage;
-            }
+    }
+    catch (Exception $e){
+            exit('<b>Catched exception at line '. $e->getLine() .' :</b> '. $e->getMessage());
+    }
+}
 
 public function updatePage(Pages $pages){
-    try{
+        try{
             $query = "UPDATE pages
                     SET
                     content=:content
