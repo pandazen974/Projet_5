@@ -2,10 +2,10 @@
 
 {block name=titre}Accueil{/block}
 
-{block name=contenu} <!-- Slideshow container -->
+{block name=contenu} 
 <div class="slideshow-container">
 
-  <!-- Full-width images with number and caption text -->
+  
   <div class="mySlides fade">
     <div class="numbertext">1 / 3</div>
     <img src="/Projet_5/public/css/images/img1.png" style="width:100%" alt="face lycée Estienne d'Orves">
@@ -24,20 +24,20 @@
     <div class="text">Espace bibliothèque</div>
   </div>
 
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="slider.plusSlides(-1);">&#10094;</a>
-  <a class="next" onclick="slider.plusSlides(1);">&#10095;</a>
+ 
+  <a class="prevs" onclick="slider.plusSlides(-1);">&#10094;</a>
+  <a class="nexts" onclick="slider.plusSlides(1);">&#10095;</a>
 </div>
 <br>
 
-<!-- The dots/circles -->
+
 <div style="text-align:center">
   <span class="dot" onclick="slider.currentSlide(1);"></span>
   <span class="dot" onclick="slider.currentSlide(2);"></span>
   <span class="dot" onclick="slider.currentSlide(3);"></span>
 </div> 
 
-<h2>Actualités</h2>
+<h2 id="news-title">Actualités</h2>
 <div class="container">
     
 
@@ -47,16 +47,27 @@
             <img src="/Projet_5/public/css/images/{$oneNews->imageName()}" alt="{$oneNews->imageDescription()}">
         </div>
         <div class="newstext">
-            <h3>{$oneNews->title()}</h3>
+            <h4>{$oneNews->title()}</h4>
             <p>{substr($oneNews->content(), 0,150 )}...</p>
             <a href="index.php?action=readOneNews&amp;id={$oneNews->id()}" >Lire la suite</a>
         </div>
     </div>
 {/foreach}
 </div>
+<div id="paging">
+    {if ($page > 1)}
+    <a href="?page={$page - 1}">Page précédente</a>
+    {/if}
+    {for $i = 1; $i <= $totalPages; $i++}
+    <a href="?page={$i}">{$i}</a>
+    {/for}
+    {if ($page < $totalPages)}
+    <a href="?page={$page + 1}">Page suivante</a>{/if}
+</div>
 {/block}
 
 {block name=scripts}
    <script src='/Projet_5/public/js/slider.js'></script> 
+   <script 
 {/block}
 
