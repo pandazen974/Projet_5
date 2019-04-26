@@ -9,7 +9,7 @@
             <img src="/Projet_5/public/css/images/{$oneNews->imageName()}" alt="{$oneNews->imageDescription()}">
         </div>
         <div class="fullText">
-                <h3>{$oneNews->title()}</h3>
+                <h4>{$oneNews->title()}</h4>
                 <p>{$oneNews->content()}</p>
             <div class="link">
                 <a href="index.php?action=openUpdateNewsForm&amp;id={$oneNews->id()}" ><div>Editer</div></a>
