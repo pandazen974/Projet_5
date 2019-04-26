@@ -10,6 +10,6 @@
     {/foreach}
 </select>
     
-    <input type="submit" value="Valider" />
+    <input type="submit" class="form_button" value="Valider" />
 </form>
 {/block}
