@@ -4,7 +4,8 @@
 
 {block name=contenu}
      <form id="case" action="index.php?action=addProfileRights&amp;id={$newProfile->id()}" method="post">
-     <table id="table_id" class="display cell-border order-column stripe">  
+        <h3>Sélection des droits</h3>
+        <table id="table_id" class="display cell-border order-column stripe">  
    
      
     {foreach $allRights as $right}
@@ -13,8 +14,8 @@
    
     
     
-      </table>
-    <input type="submit" value="Valider" />
+        </table>
+    <input type="submit" class="form_button" value="Valider" />
    </form>
 
 {/block}
