@@ -22,7 +22,7 @@ class NewsController extends Controller{
     public function readNews(){
         $newsManager=new NewsManager();
         $page = (!empty($_GET['page']) ? $_GET['page'] : 1);
-        $end= 4;
+        $end= 6;
         $start = ($page - 1) * $end;
         $allNews=$newsManager->readAllNews($start,$end);
         $num=$newsManager->countAll();
@@ -78,8 +78,7 @@ class NewsController extends Controller{
             if ($resultat) {echo "Transfert réussi";}
             $news=new News(['id'=>$_GET['id'],'title'=>$_POST['title'],'content'=>$_POST['content'],'imageName'=>$_POST['imageName'],'imageDescription'=>$_POST['imageDescription']]);
             $newsManager->updateNews($news);
-            $allNews=$newsManager->readAllNews();
-            $this->smarty->assign('allNews', $allNews);
+            header("Location: http://localhost/Projet_5/index.php?");
             $this->smarty->display('view/home.tpl');
     }
     }
@@ -90,7 +89,6 @@ class NewsController extends Controller{
         $extensions_valides = array( '.jpg' , '.jpeg' , '.gif' , '.png' );
         foreach ($extensions_valides as $ext) {
             $name=$news->imageName().$ext;
-            var_dump($name);
             $filename = "C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\public\css\images\\$name";
             if (file_exists ($filename)){
                 unlink($filename);    
