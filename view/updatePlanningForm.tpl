@@ -1,18 +1,10 @@
 {extends file="view/template.tpl"}
 
 {block name=titre}Modification planning{/block}
-{block name=contenu}<h3>Modifier un cours</h3>
-
-
+{block name=contenu}
 
 <form action="index.php?action=modifyPlanning&amp;id={$planning->id()}" method="post">
-    
-<label for="groupName">Réattribuer un groupe</label><br/>
-    <select name="groupName">
-    {foreach $groups as $group}<option value="{$group->id()}">{$group->groupName()}({$group->promotion()})</option>{/foreach}
-    </select>
-   
-
+   <h3>Modifier un cours</h3>
 <label for="title">Choisir un autre cours:</label><br/>
 
     <select id="title" name="title">
@@ -32,7 +24,7 @@
     
     
         
-    <input type="submit" value="Valider" />
+    <input type="submit" class="form_button" value="Valider" />
 
 </form>
 {/block}
