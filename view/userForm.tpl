@@ -1,12 +1,12 @@
 {extends file="view/template.tpl"}
 
 {block name=titre}Enregistrement{/block}
-{block name=contenu}<h3>Enregistrer utilisateur</h3>*
+{block name=contenu}
 
 
 
 <form action="index.php?action=registerUser" method="post">
-
+<h3>Enregistrer utilisateur</h3>
 
     <label for="lastName">Nom:</label><br/>
     <input type="text" name="lastName" />
@@ -38,7 +38,7 @@
     <label for="registrationDate">Date d'inscription:</label><br/>
     <input type="date" name="registrationDate"/>
     
-    <input type="submit" value="Valider" />
-
+    <input type="submit" class="form_button" value="Valider" />
+    
 </form>
 {/block}
