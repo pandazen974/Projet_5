@@ -243,6 +243,22 @@ try {
           $pagesController=new PagesController();
           $pagesController->openPageEditor();  
         }
+        
+        if ($_GET['action'] == 'feedImagePost') {
+          $postController=new PostController();
+          $postController->feedImagePost();
+        }
+        
+        
+        if ($_GET['action'] == 'getPage') {
+          $pagesController=new PagesController();
+          $pagesController->getPage();
+        }
+        
+        if ($_GET['action'] == 'addContentToPage') {
+          $pagesController=new PagesController();
+          $pagesController->addContentToPage();
+        }
     }
     
     else {
