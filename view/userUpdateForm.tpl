@@ -1,12 +1,12 @@
 {extends file="view/template.tpl"}
 
 {block name=titre}Mise à jour utilisateur{/block}
-{block name=contenu}<h3>Mise à jour utilisateur</h3>*
+{block name=contenu}
 
 
 
 <form action="index.php?action=modifyUser&amp;id={$user->id()}" method="post">
-
+    <h3>Mise à jour utilisateur</h3>
 
     <label for="lastName">Nom:</label><br/>
     <input type="text" name="lastName" value="{$user->lastName()}" />
@@ -38,7 +38,7 @@
     <label for="registrationDate">Date d'inscription:</label><br/>
     <input type="date" name="registrationDate" value="{$user->registrationDate()}"/>
     
-    <input type="submit" value="Valider" />
+    <input type="submit" class="form_button" value="Valider" />
 
 </form>
 {/block}
