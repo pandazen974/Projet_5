@@ -2,10 +2,9 @@
 
 {block name=titre}Validation{/block}
 {block name=contenu}<h3>Comptes en attente</h3>
-<table id="table_id" class="display cell-border order-column stripe">
+<table id="account" class="display cell-border order-column stripe">
     <thead>
         <tr>
-            <th>Id</th>
      
             <th>Nom</th>
 
@@ -27,7 +26,6 @@
 {foreach $users as $user}
    
         <tr>
-            <td>{$user->id()}</td>
 
             <td>{$user->lastName()}</td>
 
@@ -51,6 +49,8 @@
 {block name=scripts}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 <script type="text/javascript" charset="utf8" src="https:////cdn.datatables.net/plug-ins/1.10.19/i18n/French.json"></script>
 <script src="/Projet_5/public/js/datatable.js"></script>
 {/block}
