@@ -5,7 +5,7 @@
 {block name=contenu}
      <form action="index.php?action=modifyProfileRights&amp;id={$smarty.post.profile}" method="post">
      <h3>Mise à jour des droits</h3>
-     <table id="table_id" class="display cell-border order-column stripe">  
+     <table class="table-rights display cell-border order-column stripe">  
    
      
     {foreach $allRights as $right}
