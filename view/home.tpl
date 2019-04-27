@@ -37,10 +37,17 @@
   <span class="dot" onclick="slider.currentSlide(3);"></span>
 </div> 
 
-<h2 id="news-title">Actualités</h2>
-<div class="container">
-    
 
+<div id="paging">
+    <h2 id="news-title">Actualités</h2>
+    {for $i = 1; $i <= $totalPages; $i++}
+    <a href="?page={$i}" class="paging-link">{$i}</a>
+    {/for}
+</div>
+
+<div id="containerId" class="container">
+    
+<div id="contentBox">
 {foreach $allNews as $oneNews}
     <div class="newsBox">
         <div class="imagesBox">
@@ -54,20 +61,25 @@
     </div>
 {/foreach}
 </div>
-<div id="paging">
-    {if ($page > 1)}
-    <a href="?page={$page - 1}">Page précédente</a>
-    {/if}
-    {for $i = 1; $i <= $totalPages; $i++}
-    <a href="?page={$i}">{$i}</a>
-    {/for}
-    {if ($page < $totalPages)}
-    <a href="?page={$page + 1}">Page suivante</a>{/if}
 </div>
 {/block}
 
 {block name=scripts}
    <script src='/Projet_5/public/js/slider.js'></script> 
-   <script 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script> $(document).ready(function(){
+ 
+  $('.paging-link').click(function(event){
+    
+    var url = $(this).attr('href');
+    
+    url=url+' #contentBox';
+    $('#containerId').load(url);
+
+    event.preventDefault();
+  });
+  
+});
+</script>
 {/block}
 
