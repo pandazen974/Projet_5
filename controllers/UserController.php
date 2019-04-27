@@ -147,11 +147,10 @@ class UserController extends Controller{
                 }
                 $_SESSION['group'] =$group;
                 }
-            $newsManager=new NewsManager();
-            $allNews=$newsManager->readAllNews();
+           
             $this->smarty->assign('board', $board);
-            $this->smarty->assign('allNews', $allNews);
-            $this->smarty->display("view/home.tpl");
+            header("Location: http://localhost/Projet_5/index.php?");
+           
             }else{
                 $erreur='Le mot de passe est incorrect!'; 
                 
@@ -257,10 +256,7 @@ class UserController extends Controller{
     public function logOut(){
      $userManager=new UserManager();
      $userManager->endSession();
-     $newsManager=new NewsManager();
-     $allNews=$newsManager->readAllNews();
-     $this->smarty->assign('allNews', $allNews);
-     $this->smarty->display("view/home.tpl");
+    header("Location: http://localhost/Projet_5/index.php?");
     }
     
     
