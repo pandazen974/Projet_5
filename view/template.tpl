@@ -8,6 +8,18 @@ and open the template in the editor.
     <head>
         <title>{block name=titre}{/block}</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Bienvenue sur le site de la formation DTS Imagerie Médicale et Radiologie Thérapeutique de Nice" />
+        <meta property="og:title" content="DTS Imagerie Médicale et Radiologie Thérapeutique de Nice" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.pandazen.net/Projet_5/" />
+        <meta property="og:image" content="http://www.pandazen.net/Projet_5/public/images/dts.png" />
+        <meta property="og:description" content="Bienvenue sur le site de la formation DTS Imagerie Médicale et Radiologie Thérapeutique de Nice" />
+        <meta name="twitter:card" content="DTS Imagerie Médicale et Radiologie Thérapeutique de Nice">
+        <meta name="twitter:site" content="https://twitter.com/bdeestienne">
+        <meta name="twitter:title" content="DTS Imagerie Médicale et Radiologie Thérapeutique de Nice">
+        <meta name="twitter:description" content="Bienvenue sur le site de la formation DTS Imagerie Médicale et Radiologie Thérapeutique de Nice"/>
+        <meta name="twitter:creator" content="@Kevin_Ahpine">
+        <meta name="twitter:image:src" content="http://www.pandazen.net/Projet_5/public/images/dts.png">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/Projet_5/public/css/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -105,11 +117,11 @@ and open the template in the editor.
 		</div>
 
 </header>
-                                
+                               
     <div class="user">
         {if (empty($smarty.session.user))}<div class="user-menu normal"><i class="fas fa-user"></i>Visiteur</div>{else}
             <div class="user-menu first-option" ><i class="fas fa-user"></i><span id="status" class="ialign">{$smarty.session.profile}</span></div>
-            {if (!empty($smarty.session.group))}<div class="user_menu normal first-option" {if ($smarty.session.group)==1} style="color:rgba(219, 10, 91, 1)"{elseif ($smarty.session.group)==2}style="color:rgba(77, 5, 232, 1)"{else} style="color:rgba(240, 255, 0, 1)"{/if}><i class="fas fa-users"></i>Groupe<span id="group" class="ialign">{$smarty.session.group}</span></div>{/if}
+        {if (!empty($smarty.session.group))}<div class="user_menu normal first-option" {if ($smarty.session.group)==1} style="color:rgba(219, 10, 91, 1)"{elseif ($smarty.session.group)==2}style="color:rgba(77, 5, 232, 1)"{else} style="color:rgba(240, 255, 0, 1)"{/if}><i class="fas fa-users"></i>Groupe<span id="group" class="ialign">{$smarty.session.group}</span></div>{/if}
         {if (!is_null($smarty.session.user)) AND in_array(6,$smarty.session.user)} <div class="user-menu"><a href="index.php?action=readEvents"><i class="far fa-calendar-alt"></i>EDT</a></div>{/if}
         {if (!is_null($smarty.session.user)) AND in_array(14,$smarty.session.user)}<div class="user-menu"><a href="index.php?action=listAllUsers"><i class="fas fa-id-card"></i>Gestion</a></div>{/if}
         {if (!is_null($smarty.session.user)) AND in_array(14,$smarty.session.user)}<div class="user-menu"><a href="index.php?action=manageAccount"><i class="fas fa-user-check"></i>Vérification</a></div>{/if}
