@@ -17,7 +17,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="/Projet_5/public/css/jquery.datetimepicker.css"/>
         <link rel='stylesheet' href='/Projet_5/public/css/jquery-ui.css' />
         <link rel='stylesheet' href='/Projet_5/public/css/fullcalendar.css' />
-        <link rel="icon" type="image/ico" href='/Projet_5/public/css/images/favicon.ico' />
+        <link rel="icon" type="image/ico" href='/Projet_5/public/css/images/favicon.png' />
         <link rel="shortcut icon" type="image/x-icon" href='/Projet_5/public/css/images/favicon.png' />
         <link href="https://fonts.googleapis.com/css?family=Signika+Negative" rel="stylesheet"> 
         <script src="https://www.google.com/recaptcha/api.js"></script>
@@ -38,10 +38,10 @@ and open the template in the editor.
                         <div class="dropdown">
                             <button class="dropbtn">A propos du DTS<i class="fas fa-angle-down"></i></span></button>
                             <div class='dropdown-content'>
-                                    <a href="index.php?action=userForm">Organigramme</a>
-                                    <a href="index.php?UserForm.php">Historique</a>
-                                    <a href="index.php?UserForm.php">Débouchés</a>
-                                    <a href="index.php?UserForm.php">Modalités d'inscription</a>
+                                    <a href="index.php?action=guessPage&amp;id=1">Organigramme</a>
+                                    <a href="index.php?action=guessPage&amp;id=2">Historique</a>
+                                    <a href="index.php?action=guessPage&amp;id=3">Débouchés</a>
+                                    <a href="index.php?action=guessPage&amp;id=4">Modalités d'inscription</a>
                       
                             </div>
                         </div>
@@ -49,8 +49,8 @@ and open the template in the editor.
                         <div class="dropdown">
                             <button class="dropbtn">A propos du métier<i class="fas fa-angle-down"></i></button>
                             <div class='dropdown-content'>
-                                <a href="index.php?action=userForm">Législation</a>  
-                                <a href="index.php?UserForm.php">Modalités</a>
+                                 <a href="index.php?action=guessPage&amp;id=5">Législation</a>  
+                                 <a href="index.php?action=guessPage&amp;id=7">Modalités</a>
                             </div>
                         </div>
                         
@@ -84,7 +84,7 @@ and open the template in the editor.
                         <div class="dropdown">
                             <button class="dropbtn">Liens utiles<i class="fas fa-angle-down"></i></button>
                            <div class='dropdown-content'>
-                                <a href="index.php?action=userForm">Jobs</a></li>
+                                 <a href="index.php?action=guessPage&amp;id=6">Jobs</a></li>
                                 <a href="index.php?UserForm.php">Nous contacter</a></li>
                             </div>
                         </div>
@@ -123,24 +123,35 @@ and open the template in the editor.
     <div class="page-container">{block name=contenu}{/block}</div>
     
     <footer>
-        <div class="footer content"></div>
-        <div class="footer-content"><h2>DTS IMAGERIE MEDICALE ET RADIOLOGIE THERAPEUTIQUE</h2></div>
-        <div class="footer-content"></div>
+        <div id="footer-logo" class="footer-content">
+            <img src="public/css/images/nice.png" alt="Logo académie de Nice">
+            <div id="footer-address">
+                    <h1>DTS IMRT NICE</h1>
+                    <p>LYCEE HONORED’ESTIENNE D’ORVES Rive gauche <br/> DTS IMRT38,  Avenue  d’Estienne  d’Orves<br/> 06050 NICE CEDEX <br>104  93  97  70  90</p>
+                    <div class="social-footer">
+                        <a href="https://www.facebook.com/pages/Lyc%C3%A9e-Honor%C3%A9-dEstienne-dOrves/106501442718365"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/bdeestienne"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/channel/UCF7gKjncBFE2QNqNZbZNQJQ"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/explore/locations/458052446/lycee-honore-destienne-dorves-beau-site"><i class="fab fa-instagram"></i></a>
+                    </div>
+            </div>
+            </div>
+        
     </footer>
  
     {block name=scripts}{/block}
                             
                             
     <script>
-function myFunction() {
-  var x = document.getElementById("topnav");
-  if (x.className === "nav") {
+    function myFunction() {
+    var x = document.getElementById("topnav");
+    if (x.className === "nav") {
     x.className += " responsive";
-  } else {
+    } else {
     x.className = "nav";
-  }
-}
-</script>
+    }
+    }
+    </script>
 
     </body>
     
