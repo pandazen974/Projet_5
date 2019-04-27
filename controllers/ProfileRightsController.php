@@ -21,7 +21,7 @@ class ProfileRightsController extends Controller{
     }
       
     $this->smarty->assign('profileRights',$profileRights);
-    $this->smarty->display('view/home.tpl');
+     header("Location: http://localhost/Projet_5/index.php?");
     }
     
     public function showProfileRights(){
@@ -47,7 +47,7 @@ class ProfileRightsController extends Controller{
     }
        
     $this->smarty->assign('newProfileRights',$newProfileRights);
-    $this->smarty->display('view/home.tpl');
+     header("Location: http://localhost/Projet_5/index.php?");
     }
     
     public function openEraseProfileForm(){
