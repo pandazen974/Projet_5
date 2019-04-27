@@ -48,18 +48,22 @@ class NewsController extends Controller{
             }
             $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
             $extension_upload = strtolower(  substr(  strrchr($_FILES['image']['name'], '.')  ,1)  );
-            if ( in_array($extension_upload,$extensions_valides) ) {echo "Extension correcte";}
+            if ( in_array($extension_upload,$extensions_valides) ) {$checked= "Extension correcte";}
             $image_sizes = getimagesize($_FILES['image']['tmp_name']);
             if ($image_sizes[0] > 500 OR $image_sizes[1] > 500) {$erreur = "Image trop grande";}
             $nom = "C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\public\css\images\\{$_POST['imageName']}.{$extension_upload}";
             $resultat = move_uploaded_file($_FILES['image']['tmp_name'],$nom);
-            if ($resultat) {echo "Transfert réussi";}
+            if ($resultat) {$checked="Transfert réussi";}
             $news=new News(['title'=>$_POST['title'],'content'=>$_POST['content'],'imageName'=>$_POST['imageName'],'imageDescription'=>$_POST['imageDescription']]);
             $newsManager->createNews($news);
-            $allNews=$newsManager->readAllNews();
-            $this->smarty->assign('allNews', $allNews);
-            $this->smarty->display('view/home.tpl');
+            header("Location: http://localhost/Projet_5/index.php?");
+            
         }
+        else{
+        $erreur='*Il faut remplir tous les champs';
+        $this->smarty->assign('erreur', $erreur);
+        $this->smarty->display('view/newsForm.tpl');
+    }
     }
     
     public function modifyNews(){
@@ -70,16 +74,24 @@ class NewsController extends Controller{
             }
             $extensions_valides = array( 'jpg' , 'jpeg' , 'gif' , 'png' );
             $extension_upload = strtolower(  substr(  strrchr($_FILES['image']['name'], '.')  ,1)  );
-            if ( in_array($extension_upload,$extensions_valides) ) {echo "Extension correcte";}
+            if ( in_array($extension_upload,$extensions_valides) ) {$checked="Extension correcte";}
             $image_sizes = getimagesize($_FILES['image']['tmp_name']);
             if ($image_sizes[0] > 500 OR $image_sizes[1] > 500) {$erreur = "Image trop grande";}
             $nom = "C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\public\css\images\\{$_POST['imageName']}.{$extension_upload}";
             $resultat = move_uploaded_file($_FILES['image']['tmp_name'],$nom);
-            if ($resultat) {echo "Transfert réussi";}
+            if ($resultat) {$checked= "Transfert réussi";}
             $news=new News(['id'=>$_GET['id'],'title'=>$_POST['title'],'content'=>$_POST['content'],'imageName'=>$_POST['imageName'],'imageDescription'=>$_POST['imageDescription']]);
             $newsManager->updateNews($news);
-            header("Location: http://localhost/Projet_5/index.php?");
-            $this->smarty->display('view/home.tpl');
+            $oneNews=$newsManager->readSelectedNews($_GET['id']);
+            $this->smarty->assign('oneNews', $oneNews);
+            $this->smarty->display('view/news.tpl');
+           
+    }else{
+        $erreur='*Il faut remplir tous les champs';
+        $news=$newsManager->readSelectedNews($_GET['id']);
+        $this->smarty->assign('erreur', $erreur);
+        $this->smarty->assign('news', $news);
+        $this->smarty->display('view/updateNewsForm.tpl');
     }
     }
     
@@ -95,8 +107,6 @@ class NewsController extends Controller{
             }
         }
         $newsManager->deleteNews($news);
-        $allNews=$newsManager->readAllNews();
-        $this->smarty->assign('allNews', $allNews);
-        $this->smarty->display('view/home.tpl');
+        header("Location: http://localhost/Projet_5/index.php?");
     }
 }
