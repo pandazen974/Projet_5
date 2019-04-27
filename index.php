@@ -259,6 +259,12 @@ try {
           $pagesController=new PagesController();
           $pagesController->addContentToPage();
         }
+        
+        //News
+        if ($_GET['action'] == 'guessPage') {
+          $pagesController=new PagesController();
+          $pagesController->guessPage();
+        }
     }
     
     else {
