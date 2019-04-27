@@ -37,4 +37,11 @@ class PagesController extends Controller{
         $this->smarty->display('view/page.tpl');
    
     }
+    
+    public function guessPage(){
+       $pagesManager=new PagesManager;
+       $selectedPage=$pagesManager->readPageWithId($_GET['id']);
+       $this->smarty->assign('selectedPage',$selectedPage);
+       $this->smarty->display('view/selectedPage.tpl');
+    }
 }
