@@ -28,3 +28,7 @@
     {if isset($erreur)}<p>{$erreur}</p>{else $erreur eq 'null'}{/if}
   </form>
 {/block}   
+
+{block name=scripts}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{/block}

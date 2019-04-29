@@ -31,17 +31,17 @@
 <br>
 
 
-<div style="text-align:center">
+<div id="dot" style="text-align:center">
   <span class="dot" onclick="slider.currentSlide(1);"></span>
   <span class="dot" onclick="slider.currentSlide(2);"></span>
   <span class="dot" onclick="slider.currentSlide(3);"></span>
 </div> 
 
+<h2 id="news-title">Actualités</h2>
 
 <div id="paging">
-    <h2 id="news-title">Actualités</h2>
     {for $i = 1; $i <= $totalPages; $i++}
-    <a href="?page={$i}" class="paging-link">{$i}</a>
+        <a href="?page={$i}" id="page{$i}" class="paging-link">{$i}</a>
     {/for}
 </div>
 
@@ -55,7 +55,7 @@
         </div>
         <div class="newstext">
             <h4>{$oneNews->title()}</h4>
-            <p>{substr($oneNews->content(), 0,150 )}...</p>
+            <p>{substr($oneNews->content(), 0,100 )}...</p>
             <a href="index.php?action=readOneNews&amp;id={$oneNews->id()}" >Lire la suite</a>
         </div>
     </div>
@@ -66,20 +66,17 @@
 
 {block name=scripts}
    <script src='/Projet_5/public/js/slider.js'></script> 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script> $(document).ready(function(){
- 
-  $('.paging-link').click(function(event){
-    
-    var url = $(this).attr('href');
-    
-    url=url+' #contentBox';
-    $('#containerId').load(url);
-
-    event.preventDefault();
-  });
-  
-});
-</script>
+   
+   <script> 
+     $(document).ready(function(){
+        $('.paging-link').click(function(event){
+            var url = $(this).attr('href');
+            url=url+' #contentBox';
+            $('#containerId').load(url);
+            event.preventDefault();
+        });
+    });
+    </script>
+    <script src='/Projet_5/public/js/paging.js'></script>
 {/block}
 
