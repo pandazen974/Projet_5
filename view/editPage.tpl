@@ -9,7 +9,7 @@
         <select id="pageId" name="pageId">
         {foreach $pages as $page}<option value="{$page->id()}">{$page->pageName()}</option>{/foreach}
         </select><br/>
-        <textarea id="content" class="mytextarea" name="content">{$page->content()}</textarea>
+        <textarea id="content" class="mytextarea" name="content">{$selectedPage->content()}</textarea>
        
         <input type="submit" class="form_button" value="Valider" />
    </form>
