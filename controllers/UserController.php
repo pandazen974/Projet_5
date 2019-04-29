@@ -59,7 +59,7 @@ class UserController extends Controller{
                             $mail->addReplyTo('noreply@sfr.fr', 'Noreply');
                             // Contenu
                             $mail->isHTML(true);                                 
-                            $mail->Subject = 'Création de compte';
+                            $mail->Subject = 'Creation de compte';
                             $mail->Body    = 'Votre compte est en cours de création. Un <b>email de confirmation</b> vous sera envoyé pour pouvoir vous connecter ';
                             $mail->AltBody = 'Votre compte est en cours de création. Un email de confirmation vous sera envoyé pour pouvoir vous connecter';
                             $mail->send();
@@ -67,7 +67,6 @@ class UserController extends Controller{
     
     
                         } catch (Exception $e) {
-                        echo "Le message n'a pas pu être envoyé: {$mail->ErrorInfo}";
                         $error="Un problème est survenu lors de l'envoi de l'email";
                         $this->smarty->assign('error', $error);
                         $this->smarty->display('view/checkInForm.tpl');
@@ -121,7 +120,6 @@ class UserController extends Controller{
                 {
                     foreach($value as $profile){
                         $profile;
-                        var_dump($profile);
                     }
                     
                 }
@@ -141,7 +139,6 @@ class UserController extends Controller{
                 {
                     foreach($value as $group){
                         $group;
-                        var_dump($group);
                     }
                     
                 }
@@ -190,8 +187,7 @@ class UserController extends Controller{
         $mail = new PHPMailer(true);
 
         try {
-        $mail->charSet = "UTF-8";
-        $mail->SMTPDebug = 4;                                       
+        $mail->charSet = "UTF-8";                                      
         $mail->isSMTP();                                            
         $mail->Host       = 'smtp.sfr.fr';  
         $mail->SMTPAuth   = true;                                   
@@ -211,7 +207,8 @@ class UserController extends Controller{
         $mail->send();
        
         } catch (Exception $e) {
-        echo "Le message n'a pas pu être envoyé: {$mail->ErrorInfo}";
+        $error= "Le message n'a pas pu être envoyé: {$mail->ErrorInfo}";
+        $this->smarty->assign('error', $error);
         }
         $users=$userManager->readAccount();
         $this->smarty->assign('users', $users);
@@ -220,7 +217,16 @@ class UserController extends Controller{
     
     public function rejectAccount(){
         $userManager=new UserManager();
+        $usersProfileManager=new UsersProfileManager();
+        $userProfile=$usersProfileManager->readSelectedUserProfile($_GET['id']);
+        $usersProfileManager->deleteUserProfile($userProfile);
+        $studentsGroupManager=new StudentsGroupManager();
+        $studentGroup=$studentsGroupManager->readSelectedStudentGroup($_GET['id']);
+        if(!is_null($studentGroup)){
+            $studentsGroupManager->deleteStudentGroup($studentGroup);
+        }
         $selectedUser=$userManager->readSelectedUser($_GET['id']);
+        
         $userMail=$selectedUser->email();
         $mail = new PHPMailer(true);
 
@@ -241,13 +247,13 @@ class UserController extends Controller{
     // Contenu
         $mail->isHTML(true);                                 
         $mail->Subject = 'Rejet';
-        $mail->Body    = 'L\'administrateur n\'a pas validé votre compte. Veuillez contactez l\'administration pour plus d\'informations';
-        $mail->AltBody = 'L\'administrateur n\'a pas validé votre compte. Veuillez contactez l\'administration pour plus d\'informations';
+        $mail->Body    = 'L\'administrateur n\'a pas validé votre compte. Il va être supprimé. Veuillez contactez l\'administration pour plus d\'informations';
+        $mail->AltBody = 'L\'administrateur n\'a pas validé votre compte. Il va être supprimé. Veuillez contactez l\'administration pour plus d\'informations';
         $mail->send();
         } catch (Exception $e) {
         echo "Le message n'a pas pu être envoyé: {$mail->ErrorInfo}";
         } 
-        
+        $userManager->deleteUser($selectedUser);
         $users=$userManager->readAccount();
         $this->smarty->assign('users', $users);
         $this->smarty->display('view/account.tpl');
@@ -306,7 +312,6 @@ class UserController extends Controller{
         if(!empty($_POST['lastName']) AND !empty($_POST['firstName']) AND !empty($_POST['address']) AND !empty($_POST['city']) AND !empty($_POST['postalCode']) AND !empty($_POST['telNumber']) AND !empty($_POST['birth']) AND !empty($_POST['email'])   AND !empty($_POST['registrationDate'])){
                 $user=new User(['lastName'=>$_POST['lastName'],'firstName'=>$_POST['firstName'],'middleName'=>$_POST['middleName'],'address'=>$_POST['address'],'city'=>$_POST['city'],'postalCode'=>$_POST['postalCode'],'telNumber'=>$_POST['telNumber'],'birth'=>$_POST['birth'],'email'=>$_POST['email'],'registrationDate'=>$_POST['registrationDate'],'id'=>$_GET['id']]);
                 $newUser=$userManager->updateUser($user);
-                var_dump($user);
         }
               $users=$userManager->readAllUsers();
               $this->smarty->assign('users', $users);
@@ -316,7 +321,6 @@ class UserController extends Controller{
     public function eraseUser(){
         $usersProfileManager=new UsersProfileManager();
         $userProfile=$usersProfileManager->readSelectedUserProfile($_GET['id']);
-        var_dump($userProfile);
         $usersProfileManager->deleteUserProfile($userProfile);
         $studentsGroupManager=new StudentsGroupManager();
         $studentGroup=$studentsGroupManager->readSelectedStudentGroup($_GET['id']);
