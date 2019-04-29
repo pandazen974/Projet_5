@@ -71,7 +71,7 @@
   <div class="modal-content">
     <span class="shut">&times;</span>
     <p>Voulez vous supprimer cet utilisateur?</p>
-    <a href="index.php?action=eraseUser&amp;id={$user->id()}"><button>Supprimer</button></a>
+    <a href="index.php?action=eraseUser&amp;id={$user->id()}"><button class="form_button">Supprimer</button></a>
   </div>
 
 </div>
