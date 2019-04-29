@@ -265,6 +265,16 @@ try {
           $pagesController=new PagesController();
           $pagesController->guessPage();
         }
+        
+        if ($_GET['action'] == 'openContactForm') {
+          $contactController=new ContactController();
+          $contactController->openContactForm();
+        }
+        
+        if ($_GET['action'] == 'contactAdmin') {
+          $contactController=new ContactController();
+          $contactController->contactAdmin();
+        }
     }
     
     else {
