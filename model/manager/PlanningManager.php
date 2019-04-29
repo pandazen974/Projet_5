@@ -48,7 +48,6 @@ Class PlanningManager extends Database{
             $stmt->bindParam(':end',$end,PDO::PARAM_STR);
             $stmt->execute();
             $planning->setId($this->conn->lastInsertId());
-            var_dump($planning);
             return $planning;
         }
             
