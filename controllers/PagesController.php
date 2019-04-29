@@ -10,6 +10,8 @@ class PagesController extends Controller{
     public function openPageEditor(){
         $pagesManager=new PagesManager;
         $pages=$pagesManager->readAllPages();
+        $selectedPage=$pagesManager->readPageWithId(1);
+        $this->smarty->assign('selectedPage',$selectedPage);
         $this->smarty->assign('pages',$pages);
         $this->smarty->display('view/editPage.tpl');
     }
