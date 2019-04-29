@@ -11,10 +11,12 @@
         <div class="fullText">
                 <h4>{$oneNews->title()}</h4>
                 <p>{$oneNews->content()}</p>
+            {if (!empty($smarty.session.user))}
             <div class="link">
-                <a href="index.php?action=openUpdateNewsForm&amp;id={$oneNews->id()}" ><div>Editer</div></a>
-                <a href="index.php?action=eraseNews&amp;id={$oneNews->id()}" ><div>Supprimer</div></a>
+                {if in_array(3,$smarty.session.user)}<a href="index.php?action=openUpdateNewsForm&amp;id={$oneNews->id()}" ><div>Editer</div></a>{/if}
+                {if in_array(4,$smarty.session.user)}<a href="index.php?action=eraseNews&amp;id={$oneNews->id()}" ><div>Supprimer</div></a>{/if}
             </div>
+            {/if}
         </div>
     </div>
 {/block}
