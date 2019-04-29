@@ -18,6 +18,8 @@ h2,h3{
 h4{
     color:rgba(36, 37, 42, 1);
 }
+
+
 /*Accueil*/
 
 header{
@@ -121,19 +123,18 @@ header{
     box-sizing:border-box
   }
 
-/* Slideshow container */
+
 .slideshow-container {
     max-width: 1000px;
     position: relative;
     margin: auto;
 }
 
-/* Hide the images by default */
+
 .mySlides {
     display: none;
 }
 
-/* Next & previous buttons */
 .prevs, .nexts {
     cursor: pointer;
     position: absolute;
@@ -149,18 +150,16 @@ header{
     user-select: none;
 }
 
-/* Position the "next button" to the right */
 .nexts {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prevs:hover, .nexts:hover {
     background-color: rgba(0,0,0,0.8);
 }
 
-/* Caption text */
+
 .text {
     color: #f2f2f2;
     font-size: 15px;
@@ -171,7 +170,6 @@ header{
     text-align: center;
 }
 
-/* Number text (1/3 etc) */
 .numbertext {
     color: #f2f2f2;
     font-size: 12px;
@@ -180,7 +178,6 @@ header{
     top: 0;
 }
 
-/* The dots/bullets/indicators */
 .dot {
     cursor: pointer;
     height: 15px;
@@ -200,7 +197,6 @@ header{
     background-color: rgba(0, 181, 204, 1);
 }
 
-/* Fading animation */
 .fade {
     -webkit-animation-name: fade;
     -webkit-animation-duration: 1.5s;
@@ -251,10 +247,6 @@ form{
     background-color: rgba(242, 120, 75, 1);
 }
 
-
-
-
-
 input{
     padding:10px;
     margin:10px;
@@ -262,10 +254,26 @@ input{
 
 textarea{
     padding:10px;
-    margin:10px
+    margin:10px;
+    resize:none;
 }
 
+/* Modal Body */
 
+#modal{
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+/*EDT full calendar*/
 #calendar
 {
     position:relative;
@@ -291,30 +299,14 @@ textarea{
     text-align:center;
 }
 
-/* Modal Body */
-
-#modal{
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-
-/* Full calendar */
 #eventOptions{
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto; 
     border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 50%; 
 }
 
+/* Modal Content/Box */
 #close {
     color: #aaa;
     float: right;
@@ -344,28 +336,27 @@ textarea{
 
  /* The Modal (background) */
 #myModaltwo {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto; 
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%; 
 }
 
-/* The Close Button */
 .shut {
   color: #aaa;
   float: right;
@@ -419,7 +410,7 @@ textarea{
 }
 
 #table_id tr:hover,#account tr:hover{
-    background-color: rgba(37, 116, 169, 0.6);
+    background-color: rgba(37, 116, 169, 0.2);
 }
 
 #table_id th, #account th{
@@ -429,6 +420,10 @@ textarea{
 
 td{
     text-align:center;
+}
+
+#rights tr:hover{
+    background-color: rgba(37, 116, 169, 0.6);
 }
 
 .table-rights{
@@ -504,20 +499,18 @@ td{
 }
 
 .newsBox img{
-/* La transition s'applique à la fois sur la largeur et la hauteur, avec une durée d'une seconde. */
--webkit-transition: all 1s ease; /* Safari et Chrome */
--moz-transition: all 1s ease; /* Firefox */
--ms-transition: all 1s ease; /* Internet Explorer 9 */
--o-transition: all 1s ease; /* Opera */
+-webkit-transition: all 1s ease; 
+-moz-transition: all 1s ease; 
+-ms-transition: all 1s ease; 
+-o-transition: all 1s ease; 
 transition: all 1s ease;
 }
 .newsBox img:hover {
     cursor:pointer;
-/* L'image est grossie de 25% */
--webkit-transform:scale(1.25); /* Safari et Chrome */
--moz-transform:scale(1.25); /* Firefox */
--ms-transform:scale(1.25); /* Internet Explorer 9 */
--o-transform:scale(1.25); /* Opera */
+-webkit-transform:scale(1.25); 
+-moz-transform:scale(1.25); 
+-ms-transform:scale(1.25); 
+-o-transform:scale(1.25); 
 transform:scale(1.25);
 }
 
@@ -637,6 +630,7 @@ footer{
     z-index:2000;
 }
 
+/* footer */
 #footer-address{
     
     display:flex;
@@ -665,7 +659,7 @@ footer{
     border:solid 2px rgba(103, 128, 159, 1);
 }
 
-
+/* page Editor */
 #page-editor{
     width:80%;
     height:auto;
@@ -676,17 +670,42 @@ footer{
     width:80%;
 }
 
+/* contacts*/
+#contact-container{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    flex-wrap:wrap;
+    border:none;
+    box-shadow:none;
+}
 
-
+#contact-form form{
+    border:none;
+    box-shadow:none;
+    height:100%;
+}
 
 
 
 @media screen and (max-width: 780px) {
-    .nav{
+   
+    #entete img{
+        width:130px;
+        height:126px;
+    }
+  
+    #entete{
+        margin-top:25px;
+        margin-bottom:25px;
+    }
+    
+    /* Navigation */
+  .nav{
         margin-top:20px;
     }
     
-    .nav a:not(:first-child), .dropdown .dropbtn {
+  .nav a:not(:first-child), .dropdown .dropbtn {
         display: none;
   }
   .nav a.icon {
@@ -713,16 +732,12 @@ footer{
         text-align: left;
   }
   
-  #entete img{
-        width:130px;
-        height:126px;
-  }
-  
-  #separation img{
+    #separation img{
         width:350px;
         height:106px;
     }
     
+    /* Actus */
     .page-container img{
         width:250px;
         height:auto;
@@ -730,34 +745,28 @@ footer{
         margin:auto;
     }
     
-  .page-container{
-    margin:auto;
-    width:100%;
+    .page-container{
+        margin:auto;
+        width:100%;
     }
 
     form{
-    width:280px;
+        width:280px;
     }
     
     .footer-content img{
-    display:none;
+        display:none;
     }
 
 }
 
 
 @media screen and (max-width: 600px) {
+    /* Navigation */
     #entete{
-        margin-bottom:10px;
+      margin-top:50px;
+      margin-bottom:50px;
     }
-    
-    .fullNews{
-    width:280px;
-    margin:auto;
-    margin-bottom:20px;
-}
-   
-
     
    #entete img{
         width:80px;
@@ -768,5 +777,13 @@ footer{
         width:200px;
         height:61px;
     }
+    
+    /* Actus */
+    .fullNews{
+        width:280px;
+        margin:auto;
+        margin-bottom:20px;
+    }
+   
 }
 
