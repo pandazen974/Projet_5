@@ -14,7 +14,6 @@ public function registerUsersProfile(){
                 if($_POST['profile']==="3") {
                     $newUserProfile=$usersProfileManager->setUsersProfile($usersProfile);
                     $this->smarty->assign('newUserProfile', $newUserProfile);
-                    var_dump($newUserProfile);
                     $this->smarty->display('view/groupForm.tpl');
                 }else{
                     $userManager=new UserManager();
