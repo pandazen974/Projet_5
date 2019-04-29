@@ -11,6 +11,7 @@ $(document).ready(function () {
         responsive:true,
         columns: [
         { responsivePriority: 1 },
+        { responsivePriority: 2 },
         { responsivePriority: 11 },
         { responsivePriority: 12 },
         { responsivePriority: 3 },
@@ -20,8 +21,8 @@ $(document).ready(function () {
         { responsivePriority: 7 },
         { responsivePriority: 8 },
         { responsivePriority: 9 },
-        { responsivePriority: 10 },
-        { responsivePriority: 2 }
+        { responsivePriority: 10 }
+        
         
     ],
         scrollX: false,
