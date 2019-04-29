@@ -59,7 +59,6 @@ Class UsersProfileManager extends Database{
                     WHERE u.email=:email";
    
             $stmt = $this->conn->prepare( $query );
-            var_dump($email);
             $stmt->bindParam(':email', $email,PDO::PARAM_STR);
             $stmt->execute();
             while($donnees=$stmt->fetch(\PDO::FETCH_ASSOC))
