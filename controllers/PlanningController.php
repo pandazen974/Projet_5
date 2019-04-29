@@ -40,7 +40,6 @@ class PlanningController extends Controller{
                 $start=date('Y-m-d H:i:s', strtotime($_POST['start']));
                 $end=date('Y-m-d H:i:s', strtotime($_POST['end']));
                 $newPlanning=new Planning(['title'=>$_POST['title']."\n". $_POST['teacher'],'start'=>$start,'end'=>$end]);
-                var_dump($newPlanning);
                 $planningManager->createPlanning($newPlanning);
                 $this->smarty->assign('newPlanning', $newPlanning);
                 $groupManager=new GroupManager();  
@@ -56,7 +55,6 @@ class PlanningController extends Controller{
     public function openUpdatePlanningForm(){
         $planningManager=new PlanningManager();
         $planning=$planningManager->readSelectedPlanning($_GET['id']);
-        var_dump($planning);
         $planning->setStart(date('d-m-Y H:i:s', strtotime($planning->start())));
         $planning->setEnd(date('d-m-Y H:i:s', strtotime($planning->end())));
         date('Y-m-d H:i:s', strtotime($planning->start()));
@@ -91,7 +89,6 @@ class PlanningController extends Controller{
         $end=date('Y-m-d H:i:s', strtotime($_POST['end']));
         $newPlanning=new Planning(['title'=>$_POST['title']."\n". $_POST['teacher'],'start'=>$start,'end'=>$end]);
         $planningManager->createPlanning($newPlanning);
-        var_dump($newPlanning);
         $this->smarty->assign('newPlanning', $newPlanning);
         $this->smarty->display('view/newGroupPlanningForm.tpl');
     }
