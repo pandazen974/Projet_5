@@ -71,7 +71,6 @@ Class ProfileManager extends Database{
                 {
                     $profile=new Profile($donnees);
                 }
-            var_dump($profile);
             return $profile;
         
         }
