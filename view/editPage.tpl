@@ -16,7 +16,6 @@
 
 {/block}
 {block name=scripts}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src='https://cloud.tinymce.com/5/tinymce.min.js?apiKey=0sjj6aeb0m95o6pdw2ou3t1dedyo5phit4dzaswp6p6lg34c'></script>
     <script>
     tinymce.init({
