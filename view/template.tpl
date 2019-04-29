@@ -139,10 +139,9 @@ and open the template in the editor.
             </div>
         
     </footer>
- 
-    {block name=scripts}{/block}
-             
-    <script src='/Projet_5/public/js/quickmenu.js'></script></script>                      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+    {block name=scripts}{/block}              
+    <script src='/Projet_5/public/js/quickmenu.js'></script>            
     <script>
     function myFunction() {
     var x = document.getElementById("topnav");
