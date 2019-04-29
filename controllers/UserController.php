@@ -301,7 +301,6 @@ class UserController extends Controller{
     public function openUserUpdateForm(){
         $userManager=new UserManager();
         $user=$userManager->readSelectedUser($_GET['id']);
-        var_dump($user);
         $this->smarty->assign('user',$user);
         $this->smarty->display('view/userUpdateForm.tpl');
    
