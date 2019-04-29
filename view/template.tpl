@@ -84,7 +84,7 @@ and open the template in the editor.
                             <button class="dropbtn">Liens utiles<i class="fas fa-angle-down"></i></button>
                            <div class='dropdown-content'>
                                  <a href="index.php?action=guessPage&amp;id=6">Jobs</a>
-                                <a href="index.php?UserForm.php">Nous contacter</a>
+                                <a href="index.php?action=openContactForm">Nous contacter</a>
                             </div>
                         </div>
                         
@@ -141,7 +141,7 @@ and open the template in the editor.
     </footer>
  
     {block name=scripts}{/block}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>            
+             
     <script src='/Projet_5/public/js/quickmenu.js'></script></script>                      
     <script>
     function myFunction() {
