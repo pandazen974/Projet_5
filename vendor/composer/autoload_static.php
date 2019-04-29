@@ -10,6 +10,20 @@ class ComposerStaticInit140f700e016d00ded06f116c8dc80074
         'a12da592622097d2b593a430e32e13fd' => __DIR__ . '/..' . '/nette/utils/src/loader.php',
     );
 
+    public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+    );
+
     public static $classMap = array (
         'Nette\\ArgumentOutOfRangeException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
         'Nette\\DeprecatedException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
@@ -59,6 +73,8 @@ class ComposerStaticInit140f700e016d00ded06f116c8dc80074
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInit140f700e016d00ded06f116c8dc80074::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit140f700e016d00ded06f116c8dc80074::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit140f700e016d00ded06f116c8dc80074::$classMap;
 
         }, null, ClassLoader::class);

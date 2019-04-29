@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-02-12 14:44:00
+/* Smarty version 3.1.33, created on 2019-04-29 18:43:32
   from 'C:\Users\onzol\OneDrive\Documents\NetBeansProjects\Projet_5v1\Projet_5\view\userUpdateForm.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5c62dbb0f32d61_65863141',
+  'unifunc' => 'content_5cc745d49acc34_42657378',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7801152addfbf96d986b04b5d954cd7b5fe92c36' => 
     array (
       0 => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5\\view\\userUpdateForm.tpl',
-      1 => 1549982591,
+      1 => 1556562526,
       2 => 'file',
     ),
   ),
@@ -20,27 +20,29 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5c62dbb0f32d61_65863141 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5cc745d49acc34_42657378 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20582466295c62dbb0eb6bc6_87478711', 'titre');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_19124371305cc745d494ca88_03175407', 'titre');
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10687186455c62dbb0ebd4a8_32144089', 'contenu');
-$_smarty_tpl->inheritance->endChild($_smarty_tpl, "view/template.tpl");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_993503725cc745d4958683_30076106', 'contenu');
+?>
+
+<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "view/template.tpl");
 }
 /* {block 'titre'} */
-class Block_20582466295c62dbb0eb6bc6_87478711 extends Smarty_Internal_Block
+class Block_19124371305cc745d494ca88_03175407 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'titre' => 
   array (
-    0 => 'Block_20582466295c62dbb0eb6bc6_87478711',
+    0 => 'Block_19124371305cc745d494ca88_03175407',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -50,23 +52,23 @@ Mise à jour utilisateur<?php
 }
 /* {/block 'titre'} */
 /* {block 'contenu'} */
-class Block_10687186455c62dbb0ebd4a8_32144089 extends Smarty_Internal_Block
+class Block_993503725cc745d4958683_30076106 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'contenu' => 
   array (
-    0 => 'Block_10687186455c62dbb0ebd4a8_32144089',
+    0 => 'Block_993503725cc745d4958683_30076106',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
-<h3>Mise à jour utilisateur</h3>*
+
 
 
 
 <form action="index.php?action=modifyUser&amp;id=<?php echo $_smarty_tpl->tpl_vars['user']->value->id();?>
 " method="post">
-
+    <h3>Mise à jour utilisateur</h3>
 
     <label for="lastName">Nom:</label><br/>
     <input type="text" name="lastName" value="<?php echo $_smarty_tpl->tpl_vars['user']->value->lastName();?>
@@ -108,7 +110,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
     <input type="date" name="registrationDate" value="<?php echo $_smarty_tpl->tpl_vars['user']->value->registrationDate();?>
 "/>
     
-    <input type="submit" value="Valider" />
+    <input type="submit" class="form_button" value="Valider" />
 
 </form>
 <?php

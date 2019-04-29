@@ -5,137 +5,117 @@ return array (
     'ClassesController' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\ClassesController.php',
-      'time' => 1549270512,
+      'time' => 1551554789,
     ),
     'Controller' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\Controller.php',
       'time' => 1549618963,
     ),
+    'GroupPlanningController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\GroupPlanningController.php',
+      'time' => 1551554165,
+    ),
+    'NewsController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\NewsController.php',
+      'time' => 1556380054,
+    ),
+    'PagesController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\PagesController.php',
+      'time' => 1556521580,
+    ),
+    'PostController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\PostController.php',
+      'time' => 1556102276,
+    ),
+    'ProfileController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\ProfileController.php',
+      'time' => 1555019700,
+    ),
+    'ProfileRightsController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\ProfileRightsController.php',
+      'time' => 1556388669,
+    ),
+    'StudentsGroupController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\StudentsGroupController.php',
+      'time' => 1550150886,
+    ),
     'Database' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/config\\Database.php',
-      'time' => 1549557551,
+      'time' => 1551273772,
     ),
     'ClassesManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\ClassesManager.php',
-      'time' => 1549269173,
-    ),
-    'ClassesPlanningManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\ClassesPlanningManager.php',
-      'time' => 1548691304,
-    ),
-    'StudendtsStagesManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\ClassesResultsManager.php',
-      'time' => 1548695841,
+      'time' => 1551274463,
     ),
     'GroupManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\GroupManager.php',
-      'time' => 1548688123,
+      'time' => 1551524626,
     ),
     'GroupPlanningManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\GroupPlanningManager.php',
-      'time' => 1548689855,
-    ),
-    'JobsManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\JobsManager.php',
-      'time' => 1548694290,
-    ),
-    'JobsPostManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\JobsPostManager.php',
-      'time' => 1548696544,
+      'time' => 1555748049,
     ),
     'NewsManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\NewsManager.php',
-      'time' => 1548693382,
+      'time' => 1556377755,
     ),
-    'NewsPostManager' => 
+    'PagesManager' => 
     array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\NewsPostManager.php',
-      'time' => 1548696806,
-    ),
-    'PlanningManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\PlanningManager.php',
-      'time' => 1548689053,
-    ),
-    'PostsManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\PostsManager.php',
-      'time' => 1548693180,
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\PagesManager.php',
+      'time' => 1556302154,
     ),
     'ProfileManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\ProfileManager.php',
-      'time' => 1548687043,
+      'time' => 1555020292,
     ),
     'ProfileRightsManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\ProfileRightsManager.php',
-      'time' => 1548950522,
-    ),
-    'ResultsManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\ResultsManager.php',
-      'time' => 1548694578,
+      'time' => 1555793333,
     ),
     'RightsManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\RightsManager.php',
-      'time' => 1548687473,
-    ),
-    'StagesManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\StagesManager.php',
-      'time' => 1548693653,
-    ),
-    'StagesPostManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\StagesPostManager.php',
-      'time' => 1548696261,
+      'time' => 1554750951,
     ),
     'StudentsGroupManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\StudentsGroupManager.php',
-      'time' => 1549264127,
+      'time' => 1555707033,
     ),
-    'StudentsResultsManager' => 
+    'UserManager' => 
     array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\StudentsResultsManager.php',
-      'time' => 1548950602,
-    ),
-    'StudentsStagesManager' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\StudentsStagesManager.php',
-      'time' => 1548950567,
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\UserManager.php',
+      'time' => 1555792844,
     ),
     'UsersProfileManager' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\UsersProfileManager.php',
-      'time' => 1549817271,
+      'time' => 1555529907,
     ),
     'Classes' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\Classes.php',
-      'time' => 1548688368,
+      'time' => 1551276266,
     ),
     'ClassesPlanning' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\ClassesPlanning.php',
-      'time' => 1548696806,
-    ),
-    'ClassesResults' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\ClassesResults.php',
-      'time' => 1548696081,
+      'time' => 1550587097,
     ),
     'Group' => 
     array (
@@ -145,7 +125,7 @@ return array (
     'GroupPlanning' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\GroupPlanning.php',
-      'time' => 1548690299,
+      'time' => 1550587716,
     ),
     'Jobs' => 
     array (
@@ -160,22 +140,17 @@ return array (
     'News' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\News.php',
-      'time' => 1548693361,
+      'time' => 1552929660,
     ),
-    'NewsPost' => 
+    'Pages' => 
     array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\NewsPost.php',
-      'time' => 1548696701,
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\Pages.php',
+      'time' => 1556102834,
     ),
     'Planning' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\Planning.php',
-      'time' => 1548688968,
-    ),
-    'Posts' => 
-    array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\Posts.php',
-      'time' => 1548693096,
+      'time' => 1555683153,
     ),
     'Profile' => 
     array (
@@ -210,7 +185,7 @@ return array (
     'StudentsGroup' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\StudentsGroup.php',
-      'time' => 1549263978,
+      'time' => 1550515800,
     ),
     'StudentsResults' => 
     array (
@@ -225,12 +200,12 @@ return array (
     'User' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\User.php',
-      'time' => 1549816520,
+      'time' => 1554391793,
     ),
     'UsersProfile' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/entity\\UsersProfile.php',
-      'time' => 1548690704,
+      'time' => 1550481201,
     ),
     'Smarty_Autoloader' => 
     array (
@@ -1097,15 +1072,30 @@ return array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/tpl\\sysplugins\\smarty_variable.php',
       'time' => 1548173028,
     ),
-    'UserManager' => 
+    'ContactController' => 
     array (
-      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\UserManager.php',
-      'time' => 1549982345,
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\ContactController.php',
+      'time' => 1556556736,
     ),
     'UserController' => 
     array (
       'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\UserController.php',
-      'time' => 1549983488,
+      'time' => 1556563471,
+    ),
+    'UsersProfileController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\UsersProfileController.php',
+      'time' => 1556563290,
+    ),
+    'PlanningManager' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/model/manager\\PlanningManager.php',
+      'time' => 1556566091,
+    ),
+    'PlanningController' => 
+    array (
+      'file' => 'C:\\Users\\onzol\\OneDrive\\Documents\\NetBeansProjects\\Projet_5v1\\Projet_5/controllers\\PlanningController.php',
+      'time' => 1556566291,
     ),
   ),
   1 => 
@@ -1113,5 +1103,10 @@ return array (
     'Smarty_Internal_Compile_User' => 1,
     'Smarty_Internal_Method_Assign_By_Ref' => 2,
     'Smarty_Internal_Method_Register_Object' => 3,
+    'planningManager' => 1,
+    'Smarty_Internal_Compile_Echo' => 3,
+    'PageController' => 1,
+    'Page' => 3,
+    'Smarty_Internal_Compile_I' => 1,
   ),
 );
