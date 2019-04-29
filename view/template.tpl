@@ -68,17 +68,6 @@ and open the template in the editor.
                         
                         
                         {if (!empty($smarty.session.user))}
-                            {if in_array(14,$smarty.session.user)}
-                        <div class="dropdown">
-                            <button class="dropbtn">Administration<i class="fas fa-angle-down"></i></button>
-                            <div class='dropdown-content'>
-                            {if in_array(1,$smarty.session.user)}<a href="index.php?action=openNewsForm">Création des articles</a>{/if}
-                            {if in_array(14,$smarty.session.user)}<a href="index.php?action=manageAccount">Gestion des comptes utilisateurs</a>{/if}
-                            {if in_array(17,$smarty.session.user)}<a href="index.php?action=openPageEditor">Editer une page</a>{/if}
-                            </div>
-                        </div>
-                            {/if}
-                        
                         {if in_array(10,$smarty.session.user)}
                         <div class="dropdown">
                             <button class="dropbtn">Gestion Profils<i class="fas fa-angle-down"></i></button>
@@ -88,16 +77,14 @@ and open the template in the editor.
                                 {if in_array(12,$smarty.session.user)}<a href="index.php?action=openEraseProfileForm">Suppression profil</a>{/if}
                             </div>
                         </div>
-                        {/if}
-                        
-                         
+                        {/if} 
                         {/if}
                         
                         <div class="dropdown">
                             <button class="dropbtn">Liens utiles<i class="fas fa-angle-down"></i></button>
                            <div class='dropdown-content'>
-                                 <a href="index.php?action=guessPage&amp;id=6">Jobs</a></li>
-                                <a href="index.php?UserForm.php">Nous contacter</a></li>
+                                 <a href="index.php?action=guessPage&amp;id=6">Jobs</a>
+                                <a href="index.php?UserForm.php">Nous contacter</a>
                             </div>
                         </div>
                         
@@ -117,7 +104,9 @@ and open the template in the editor.
 		</div>
 
 </header>
-                               
+                                
+<div id="menu-container">
+    <div id="bar"><span id="arrow-right" class="arrow fas fa-caret-square-right"></span><span id="arrow-left" class=" arrow fas fa-caret-square-left"></span></div>                            
     <div class="user">
         {if (empty($smarty.session.user))}<div class="user-menu normal"><i class="fas fa-user"></i>Visiteur</div>{else}
             <div class="user-menu first-option" ><i class="fas fa-user"></i><span id="status" class="ialign">{$smarty.session.profile}</span></div>
@@ -129,7 +118,7 @@ and open the template in the editor.
         {if (!is_null($smarty.session.user)) AND in_array(1,$smarty.session.user)}<div class="user-menu"><a href="index.php?action=openNewsForm"><i class="far fa-newspaper"></i>Actualités</a></div>{/if}
         {/if}   
     </div>
-                            
+</div>                            
                         
                                    
     <div class="page-container">{block name=contenu}{/block}</div>
@@ -152,8 +141,8 @@ and open the template in the editor.
     </footer>
  
     {block name=scripts}{/block}
-                            
-                            
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>            
+    <script src='/Projet_5/public/js/quickmenu.js'></script></script>                      
     <script>
     function myFunction() {
     var x = document.getElementById("topnav");
