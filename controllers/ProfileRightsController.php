@@ -60,7 +60,9 @@ class ProfileRightsController extends Controller{
     public function eraseProfileRights(){
      $profileRightsManager=new ProfileRightsManager();
      $profileRights=$profileRightsManager->getSelectedProfileRights($_POST['profile']);
+     if(!is_null($profileRights)){
      $profileRightsManager->deleteProfileRights($profileRights);
+     }
      $profileManager=new ProfileManager();
      $profile=$profileManager->getSelectedProfile($_POST['profile']);
      $profileManager->deleteProfile($profile); 
