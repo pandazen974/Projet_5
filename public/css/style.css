@@ -788,6 +788,11 @@ footer{
         margin:auto;
         margin-bottom:20px;
     }
+    /* Contacts */
+    #contact-form{
+    margin-bottom:50px;
+    }
+
    
 }
 
