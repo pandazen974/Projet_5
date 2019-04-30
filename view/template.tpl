@@ -48,7 +48,7 @@ and open the template in the editor.
 		<div class="nav" id="topnav">
                     <a href="index.php?action=readNews" class="title-menu home"><i class="fas fa-home"></i>Accueil</a>
                         <div class="dropdown">
-                            <button class="dropbtn">A propos du DTS<i class="fas fa-angle-down"></i></span></button>
+                            <button class="dropbtn">A propos du DTS<i class="fas fa-angle-down"></i></button>
                             <div class='dropdown-content'>
                                     <a href="index.php?action=guessPage&amp;id=1">Organigramme</a>
                                     <a href="index.php?action=guessPage&amp;id=2">Historique</a>
@@ -98,7 +98,7 @@ and open the template in the editor.
                                
                             </div>
                         </div>
-                        <a href="javascript:void(0);" onclick="myFunction()" class="icon" >&#9776</a>
+                        <a href="javascript:void(0);" onclick="myFunction()" class="icon" >&#9776;</a>
                             
                        
 		</div>
