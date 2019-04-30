@@ -5,7 +5,7 @@
 {block name=contenu}
      <form id="case" action="index.php?action=addProfileRights&amp;id={$newProfile->id()}" method="post">
         <h3>Sélection des droits</h3>
-        <table id='rights'  class="table-rights display cell-border order-column stripe">  
+        <table class="table-rights display cell-border order-column stripe">  
    
      
     {foreach $allRights as $right}
