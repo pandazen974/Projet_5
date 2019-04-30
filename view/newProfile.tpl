@@ -4,7 +4,7 @@
 
 {block name=contenu}<form action="index.php?action=addProfile" method="post">
 <label for="profile">Choisir un nom pour le profil:</label><br/>
-    <input type="text" name="profile" />
+    <input type="text" id="profile" name="profile" />
     
     <input type="submit" class="form_button" value="Valider" />
 </form>
