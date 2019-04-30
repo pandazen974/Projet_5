@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="fr">
     <head>
         <title>{block name=titre}{/block}</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
