@@ -17,7 +17,7 @@
     <input type="text" required name="imageName"><br/>
     
     <label for="image">Insérer une image:</label><br/>
-    <input type="file" required class="form_button" name="image"><br/>
+    <input type="file" class="form_button" name="image"><br/>
     
     <label for="imageDescription">Description de votre fichier (max. 255 caractères) :</label><br />
     <textarea name="imageDescription" id="description"></textarea><br />
