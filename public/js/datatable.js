@@ -40,9 +40,9 @@ $(document).ready(function () {
         responsive:true,
         columns: [
         { responsivePriority: 1 },
-        { responsivePriority: 2 },
-        { responsivePriority: 6 },
         { responsivePriority: 7 },
+        { responsivePriority: 6 },
+        { responsivePriority: 2 },
         { responsivePriority: 3 },
         { responsivePriority: 4 },
         { responsivePriority: 5 }
