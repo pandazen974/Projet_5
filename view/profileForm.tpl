@@ -4,7 +4,7 @@
 
 {block name=contenu}<form action="index.php?action=registerUsersProfile&amp;id={$newUser->id()}" method="post">
 <label for="profile">Veuillez renseigner le profil de l'utilisateur:</label><br/>
-<select name="profile">
+<select id="profile" name="profile">
     {foreach $profiles as $profile}
     <option value={$profile->id()}>{$profile->profileName()}</option>
     {/foreach}
