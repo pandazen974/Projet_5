@@ -422,16 +422,16 @@ td{
     text-align:center;
 }
 
-#rights tr:hover{
-    background-color: rgba(37, 116, 169, 0.6);
-}
-
-#rights-update tr:hover{
+#rightsupdate tr:hover{
     background-color: rgba(37, 116, 169, 0.6);
 }
 
 .table-rights{
     margin:auto;
+}
+
+.table-rights tr:hover{
+    background-color: rgba(37, 116, 169, 0.6);
 }
 /*news*/
 #news-title{
